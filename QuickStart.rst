@@ -144,14 +144,15 @@ For a list of various command line options run `pybot --help`.
 Viewing results
 ---------------
 
-Running the demo generates the following three result files that can be viewed
-also without running the demo.
+Running the demo generates the following three result files. These files are
+linked to pre-executed files available online, but executing the demo creates
+them locally.
 
-`<report.html>`_
+`report.html <http://robotframework.org/QuickStartGuide/report.html>`__
     Higher level test report.
-`<log.html>`_
+`log.html <http://robotframework.org/QuickStartGuide/log.html>`__
     Detailed test execution log.
-`<output.xml>`_
+`output.xml <http://robotframework.org/QuickStartGuide/output.xml>`__
     Results in machine readable XML format.
 
 Test cases
