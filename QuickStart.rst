@@ -4,31 +4,31 @@
   Robot Framework Quick Start Guide
 =====================================
 
-The Quick Start Guide introduces the most important `Robot Framework
-<http://robotframework.org>`_ features. You can simply browse through it and
-look at the examples, but you can also use the guide as an executable demo.
-
-Copyright © Nokia Solutions and Networks. Licensed under the
-`Creative Commons Attribution 3.0 Unported`__ license.
+| Copyright © Nokia Solutions and Networks.
+| Licensed under the `Creative Commons Attribution 3.0 Unported`__ license.
 
 __ http://creativecommons.org/licenses/by/3.0/
 
-.. contents::
+.. contents:: Table of contents
    :depth: 2
 
 Introduction
 ============
 
+The Quick Start Guide introduces the most important `Robot Framework
+<http://robotframework.org>`_ features. You can simply browse through it and
+look at the examples, but you can also use the guide as an executable demo.
+
 Robot Framework overview
 ------------------------
 
-`Robot Framework`_ is a generic open source test
-automation framework for acceptance testing and acceptance test-driven
-development (ATDD). It has easy-to-use tabular test data syntax and it utilizes
-the keyword-driven testing approach. Its testing capabilities can be extended
-by test libraries implemented either with Python or Java, and users can create
-new higher-level keywords from existing ones using the same syntax that is used
-for creating test cases.
+`Robot Framework`_ is a generic open source test automation framework for
+acceptance testing and acceptance test-driven development (ATDD). It has
+easy-to-use tabular test data syntax and it utilizes the keyword-driven
+testing approach. Its testing capabilities can be extended by test libraries
+implemented either with Python or Java, and users can create new higher-level
+keywords from existing ones using the same syntax that is used for creating
+test cases.
 
 Robot Framework is operating system and application independent. The core
 framework is implemented using `Python <http://python.org>`_ and runs also on
