@@ -16,11 +16,15 @@ __ http://creativecommons.org/licenses/by/3.0/
 Introduction
 ============
 
-The Quick Start Guide introduces the most important `Robot Framework
-<http://robotframework.org>`_ features. You can simply browse through it and
-look at the examples, but you can also use the guide as an `executable demo`__.
+About this guide
+----------------
 
-__ `Running this demo`_
+*Robot Framework Quick Start Guide* introduces the most important `Robot
+Framework <http://robotframework.org>`_ features. You can simply browse
+through it and look at the examples, but you can also use the guide as an
+`executable demo`__.
+
+__ `Executing this guide`_
 
 Robot Framework overview
 ------------------------
@@ -100,10 +104,10 @@ verified and if not valid, an error message is given::
 The application uses a simple database file to keep track on user statuses.
 The file is located in operating system dependent temporary directory.
 
-Running this demo
-=================
+Executing this guide
+====================
 
-These instructions explain how to execute this guide yourself. If you are not
+These instructions explain how to run this guide yourself. If you are not
 interested in that, you can nevertheless `view the results`__ online.
 
 __ `Viewing results`_
@@ -140,9 +144,12 @@ With all preconditions in place, you can run the demo on the command line
 by using `pybot` command::
 
     pybot QuickStart.rst
+
+You can also configure the execution with various command line options::
+
     pybot --log custom_log.html --name Custom_Name QuickStart.rst
 
-For a list of various command line options run `pybot --help`.
+For a list of available options run `pybot --help`.
 
 __ https://github.com/robotframework/QuickStartGuide/releases
 
@@ -408,8 +415,8 @@ Test suites
 -----------
 
 Collections of test cases are called test suites in Robot Framework. Every
-input file which contains test cases forms a test suite. When `running this
-demo`_, you see test suite `QuickStart` in the console output. This name is
+input file which contains test cases forms a test suite. When `executing this
+guide`_, you see test suite `QuickStart` in the console output. This name is
 got from the file name and it is also visible in the report and log.
 
 It is possible to organize test cases hierarchically by placing test case
@@ -421,21 +428,23 @@ they are trivially placed into any version control system.
 Setups and teardowns
 --------------------
 
-If you want a set of actions to occur before and after each test executes,
-use the `Test Setup` and `Test Teardown` settings like so:
+If you want certain keywords to be executed before or after each test,
+use the `Test Setup` and `Test Teardown` settings in the setting table.
+Similarly you can use the `Suite Setup` and `Suite Teardown` settings to
+specify keywords to be executed before or after an entire test suite.
+
+Individual tests can also have a custom setup or teardown by using `[Setup]`
+and `[Teardown]` in the test case table. This works the same way as
+`[Template]` was used earlier with `data-driven tests`_.
+
+In this demo we want to make sure the database is cleared before execution
+starts and that every test also clears it afterwards:
 
 .. code:: robotframework
 
     *** Settings ***
-    Test Setup        Clear Login Database
-    Test Teardown
-
-Similarly you can use the `Suite Setup` and `Suite Teardown` settings to
-specify actions to be executed before and after an entire test suite executes.
-
-Individual tests can also have custom setup and teardown by using `[Setup]`
-and `[Teardown]` settings in the test case table the same way as earlier
-`data-driven tests`_ use `[Template]`.
+    Suite Setup       Clear Login Database
+    Test Teardown     Clear Login Database
 
 Using tags
 ----------
