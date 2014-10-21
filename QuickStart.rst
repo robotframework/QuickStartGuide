@@ -4,12 +4,13 @@
   Robot Framework Quick Start Guide
 =====================================
 
-| Copyright © Nokia Solutions and Networks.
-| Licensed under the `Creative Commons Attribution 3.0 Unported`__ license.
+Copyright © Nokia Solutions and Networks. Licensed under the
+`Creative Commons Attribution 3.0 Unported`__ license.
 
 __ http://creativecommons.org/licenses/by/3.0/
 
 .. contents:: Table of contents
+   :local:
    :depth: 2
 
 Introduction
