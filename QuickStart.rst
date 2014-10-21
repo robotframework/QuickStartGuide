@@ -131,7 +131,7 @@ Execution
 ---------
 
 After installations you still need to get the demo itself. You can either
-download and extract a released demo package or clone the demo repository.
+download and extract a `released demo package`__ or clone the demo repository.
 
 With all preconditions in place, you can run the demo on the command line
 by using `pybot` command::
@@ -140,6 +140,8 @@ by using `pybot` command::
     pybot --log custom_log.html --name Custom_Name QuickStart.rst
 
 For a list of various command line options run `pybot --help`.
+
+__ https://github.com/robotframework/QuickStartGuide/releases
 
 Viewing results
 ---------------
