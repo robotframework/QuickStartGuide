@@ -22,9 +22,11 @@ About this guide
 *Robot Framework Quick Start Guide* introduces the most important `Robot
 Framework <http://robotframework.org>`_ features. You can simply browse
 through it and look at the examples, but you can also use the guide as an
-`executable demo`__.
+`executable demo`__. All features shown here are explained more thoroughly
+in `Robot Framework User Guide`_.
 
 __ `Executing this guide`_
+.. _Robot Framework User Guide: http://robotframework.org/robotframework/#user-guide
 
 Robot Framework overview
 ------------------------
@@ -43,12 +45,9 @@ framework is implemented using `Python <http://python.org>`_ and runs also on
 (.NET). The framework has a rich ecosystem around it consisting of various
 generic test libraries and tools that are developed as separate projects.
 
-Everything discussed in this Quick Start Guide is explained in more detail in
-`Robot Framework User Guide`_. For general information about Robot Framework
-and the whole ecosystem, including more demo projects, see
-http://robotframework.org.
-
-.. _Robot Framework User Guide: http://robotframework.org/robotframework/#user-guide
+For more information about Robot Framework and the ecosystem, see
+http://robotframework.org. There you can find plenty more documentation,
+demo projects, list of available test libraries and other tools, and so on.
 
 Demo application
 ----------------
@@ -137,11 +136,12 @@ __ https://pypi.python.org/pypi/docutils
 Execution
 ---------
 
-After installations you still need to get the demo itself. You can either
-download and extract a `released demo package`__ or clone the demo repository.
+After installations you still need to get the demo itself. It is easiest to
+download and extract a certain release__ or the `latest version`__, but it
+is also possible to `clone the repository`__ on GitHub.
 
-With all preconditions in place, you can run the demo on the command line
-by using `pybot` command::
+After installations and with all other preconditions in place, you can run
+the demo on the command line by using `pybot` command::
 
     pybot QuickStart.rst
 
@@ -152,6 +152,8 @@ You can also configure the execution with various command line options::
 For a list of available options run `pybot --help`.
 
 __ https://github.com/robotframework/QuickStartGuide/releases
+__ https://github.com/robotframework/QuickStartGuide/archive/master.zip
+__ https://github.com/robotframework/QuickStartGuide
 
 Viewing results
 ---------------
@@ -228,7 +230,7 @@ Data-driven tests
 -----------------
 
 Quite often several test cases are otherwise similar but they have slightly
-different input or output data. In these situations *data-driven* testing
+different input or output data. In these situations *data-driven tests*
 allows varying the test data without duplicating the workflow. With Robot
 Framework the `[Template]` setting turns a test case into a data-driven test
 where the template keyword is executed using the data defined in the test case
@@ -246,15 +248,16 @@ body:
         AbCdEfGh         ${PWD INVALID CONTENT}
         abCD56+          ${PWD INVALID CONTENT}
 
-In addition to using the `[Template]` setting individual tests, it would be
-possible to use the `Test Template` setting once in the setting table like
+In addition to using the `[Template]` setting with individual tests, it would
+be possible to use the `Test Template` setting once in the setting table like
 `setups and teardowns`_ are defined in this guide later. In our case that
 would ease creating separate and separately named tests for too short and too
 long passwords and for other invalid cases. That would require moving those
 tests to a separate file, though, because otherwise the common template would
 be applied also to other tests in this file.
 
-Notice also that the error messages are specified using variables_.
+Notice also that the error messages in the above example are specified using
+variables_.
 
 Keywords
 ========
@@ -384,7 +387,7 @@ Using variables
 Variables can be used in most places in the test data. They are most commonly
 used as arguments to keywords like the following test case demonstrates.
 Return values from keywords can also be assigned to variables and used later.
-For example the following `Database Should Contain` `user keyword`_ sets
+For example, the following `Database Should Contain` `user keyword`_ sets
 database content to `${database}` variable and then verifies the content
 using BuiltIn_ keyword `Should Contain`. Both library and user keywords can
 return values.
@@ -417,7 +420,7 @@ Test suites
 Collections of test cases are called test suites in Robot Framework. Every
 input file which contains test cases forms a test suite. When `executing this
 guide`_, you see test suite `QuickStart` in the console output. This name is
-got from the file name and it is also visible in the report and log.
+got from the file name and it is also visible in reports and logs.
 
 It is possible to organize test cases hierarchically by placing test case
 files into directories and these directories into other directories. All
@@ -476,9 +479,9 @@ Creating test libraries
 =======================
 
 Robot Framework offers a simple API for creating test libraries using either
-Python or Java, and the remote interface allows using also other programming
-languages. `Robot Framework User Guide`_ contains detailed description about
-the library API.
+Python or Java, and the remote library interface allows using also other
+programming languages. `Robot Framework User Guide`_ contains detailed
+description about the library API.
 
 As an example, we can take a look at `LoginLibrary` test library used in this
 demo. The library is located at `<lib/LoginLibrary.py>`_, and its source code
