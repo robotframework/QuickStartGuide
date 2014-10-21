@@ -9,7 +9,7 @@ Copyright © Nokia Solutions and Networks. Licensed under the
 
 __ http://creativecommons.org/licenses/by/3.0/
 
-.. contents:: Table of contents
+.. contents:: Table of contents:
    :local:
    :depth: 2
 
@@ -18,7 +18,9 @@ Introduction
 
 The Quick Start Guide introduces the most important `Robot Framework
 <http://robotframework.org>`_ features. You can simply browse through it and
-look at the examples, but you can also use the guide as an executable demo.
+look at the examples, but you can also use the guide as an `executable demo`__.
+
+__ `Running this demo`_
 
 Robot Framework overview
 ------------------------
