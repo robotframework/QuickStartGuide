@@ -137,8 +137,8 @@ Execution
 ---------
 
 After installations you still need to get the demo itself. It is easiest to
-download and extract a certain release__ or the `latest version`__, but it
-is also possible to `clone the repository`__ on GitHub.
+download a certain release__ or grab the `latest content`__ and extract the
+package somewhere, but it is also possible to clone the repository__.
 
 After installations and with all other preconditions in place, you can run
 the demo on the command line by using `pybot` command::
