@@ -136,7 +136,7 @@ __ https://pypi.python.org/pypi/docutils
 Execution
 ---------
 
-After installations you still need to get the demo itself. It is easiest to
+After installations you still need to get the demo itself. It is easier to
 download a certain release__ or grab the `latest content`__ and extract the
 package somewhere, but it is also possible to clone the repository__.
 
@@ -329,17 +329,17 @@ keyword table:
         Status should be    Logged In
 
     # Keywords below used by BDD test cases (this is a comment)
-    Given a user has a valid account
+    A user has a valid account
         Create valid user    ${USERNAME}    ${PASSWORD}
 
-    When she changes her password
+    She changes her password
         Change password    ${USERNAME}    ${PASSWORD}    ${NEW PASSWORD}
         Status should be    SUCCESS
 
-    Then she can log in with the new password
+    She can log in with the new password
         Login    ${USERNAME}    ${NEW PASSWORD}
 
-    And she cannot use the old password anymore
+    She cannot use the old password anymore
         Attempt to login with credentials    ${USERNAME}    ${PASSWORD}
         Status should be    Access Denied
 
@@ -409,7 +409,7 @@ return values.
     Database Should Contain
         [Arguments]    ${username}    ${password}    ${status}
         ${database} =     Get File    ${DATABASE FILE}
-        Should Contain    ${database}    ${username}\t${password}\t${status}\n
+        Should Contain    ${database}    ${username}\t${password}\t${status}${\n}
 
 Organizing test cases
 =====================
