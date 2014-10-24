@@ -120,7 +120,7 @@ installed, you can simply run::
 
     pip install robotframework
 
-See `Robot Framework installation instructions`__ for alternative installation
+See `Robot Framework installation instructions`_ for alternative installation
 approaches and more information about installation in general.
 
 This demo is written using reStructuredText__ markup language with Robot
@@ -129,7 +129,13 @@ installing additional docutils__ module::
 
     pip install docutils
 
-__ https://github.com/robotframework/robotframework/blob/master/INSTALL.rst
+Notice that at the time of this writing Python 3 is not yet officially
+supported. See the aforementioned `installation instructions`_ for information
+about an unofficial Python 3 port and the latest status of Python 3 support.
+
+.. _`Robot Framework installation instructions`:
+   https://github.com/robotframework/robotframework/blob/master/INSTALL.rst
+.. _`installation instructions`: `Robot Framework installation instructions`_
 __ http://docutils.sourceforge.net/rst.html
 __ https://pypi.python.org/pypi/docutils
 
