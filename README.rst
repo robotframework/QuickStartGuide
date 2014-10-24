@@ -1,12 +1,13 @@
 Robot Framework Quick Start Guide
 =================================
 
-The Quick Start Guide introduces the most important `Robot Framework
-<http://robotframework.org>`_ features. You can simply browse through it and
-look at the examples, but you can also use the guide as an executable demo.
+*Robot Framework Quick Start Guide* introduces the most important `Robot
+Framework <http://robotframework.org>`_ features. You can simply browse
+through it and look at the examples, but you can also use the guide as
+an executable demo.
 
 The guide itself is in `<QuickStart.rst>`_ file. It replaces the old version
-available on the `old project pages`__.
+still available on the `old project pages`__.
 
 Copyright © Nokia Solutions and Networks. Licensed under the
 `Creative Commons Attribution 3.0 Unported`__ license.
