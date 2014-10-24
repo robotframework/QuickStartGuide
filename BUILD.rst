@@ -14,7 +14,7 @@ Creating releases
 
 2. Create tag::
 
-    VERSION=x.y
+    VERSION=x.y    # Set this!!
     git tag -a -m "Release $VERSION" $VERSION
     git push --tags
 
