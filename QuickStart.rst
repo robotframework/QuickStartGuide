@@ -131,7 +131,8 @@ installing additional docutils__ module::
 
 Notice that at the time of this writing Python 3 is not yet officially
 supported. See the aforementioned `installation instructions`_ for information
-about an unofficial Python 3 port and the latest status of Python 3 support.
+about an unofficial Python 3 port and the latest status of Python 3 support in
+general.
 
 .. _`Robot Framework installation instructions`:
    https://github.com/robotframework/robotframework/blob/master/INSTALL.rst
@@ -334,18 +335,20 @@ keyword table:
         Attempt to login with credentials    ${username}    ${password}
         Status should be    Logged In
 
-    # Keywords below used by BDD test cases (this is a comment)
-    Given a user has a valid account
+    # Keywords below used by higher level tests. Notice how given/when/then/and
+    # prefixes can be dropped. And this is a commend.
+
+    A user has a valid account
         Create valid user    ${USERNAME}    ${PASSWORD}
 
-    When she changes her password
+    She changes her password
         Change password    ${USERNAME}    ${PASSWORD}    ${NEW PASSWORD}
         Status should be    SUCCESS
 
-    Then she can log in with the new password
+    She can log in with the new password
         Login    ${USERNAME}    ${NEW PASSWORD}
 
-    And she cannot use the old password anymore
+    She cannot use the old password anymore
         Attempt to login with credentials    ${USERNAME}    ${PASSWORD}
         Status should be    Access Denied
 
