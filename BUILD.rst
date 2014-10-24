@@ -8,7 +8,7 @@ Creating releases
     git checkout gh-pages
     mv -f results/*.* .
     rmdir results
-    git commit -m "Updated results available online"
+    git commit -a -m "Updated results available online"
     git checkout master
     git push
 
