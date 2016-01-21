@@ -27,7 +27,7 @@ class UserDataBase(object):
     def create_user(self, username, password):
         try:
             user = User(username, password)
-        except ValueError, err:
+        except ValueError as err:
             return 'Creating user failed: %s' % err
         self.users[user.username] = user
         return 'SUCCESS'
@@ -47,14 +47,14 @@ class UserDataBase(object):
             if not self._is_valid_user(username, old_pwd):
                 raise ValueError('Access Denied')
             self.users[username].password = new_pwd
-        except ValueError, err:
+        except ValueError as err:
             return 'Changing password failed: %s' % err
         else:
             return 'SUCCESS'
 
     def save(self):
         with open(self.db_file, 'w') as file:
-            for user in self.users.values():
+            for user in list(self.users.values()):
                 file.write('%s\t%s\t%s\n'
                            % (user.username, user.password, user.status))
 
@@ -104,22 +104,22 @@ class User(object):
 
 def login(username, password):
     with UserDataBase() as db:
-        print db.login(username, password)
+        print(db.login(username, password))
 
 
 def create_user(username, password):
     with UserDataBase() as db:
-        print db.create_user(username, password)
+        print(db.create_user(username, password))
 
 
 def change_password(username, old_pwd, new_pwd):
     with UserDataBase() as db:
-        print db.change_password(username, old_pwd, new_pwd)
+        print(db.change_password(username, old_pwd, new_pwd))
 
 
 def help():
-    print ('Usage: %s { create | login | change-password | help }'
-           % os.path.basename(sys.argv[0]))
+    print(('Usage: %s { create | login | change-password | help }'
+           % os.path.basename(sys.argv[0])))
 
 
 if __name__ == '__main__':
