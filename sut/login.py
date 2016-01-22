@@ -120,8 +120,8 @@ def change_password(username, old_pwd, new_pwd):
 
 
 def help():
-    print(('Usage: %s { create | login | change-password | help }'
-           % os.path.basename(sys.argv[0])))
+    print('Usage: %s { create | login | change-password | help }'
+           % os.path.basename(sys.argv[0]))
 
 
 if __name__ == '__main__':
