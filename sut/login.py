@@ -56,7 +56,7 @@ class UserDataBase(object):
 
     def save(self):
         with open(self.db_file, 'w') as file:
-            for user in list(self.users.values()):
+            for user in self.users.values():
                 file.write('%s\t%s\t%s\n'
                            % (user.username, user.password, user.status))
 
