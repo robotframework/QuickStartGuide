@@ -129,10 +129,9 @@ installing additional docutils__ module::
 
     pip install docutils
 
-Notice that at the time of this writing Python 3 is not yet officially
-supported. See the aforementioned `installation instructions`_ for information
-about an unofficial Python 3 port and the latest status of Python 3 support in
-general.
+Notice that Robot Framework 3.0 is the first Robot Framework version to support
+Python 3. See the aforementioned `installation instructions`_ for information
+about Python 2 vs Python 3.
 
 .. _`Robot Framework installation instructions`:
    https://github.com/robotframework/robotframework/blob/master/INSTALL.rst

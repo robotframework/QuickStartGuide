@@ -7,7 +7,8 @@ through it and look at the examples, but you can also use the guide as
 an executable demo.
 
 The guide itself is in `<QuickStart.rst>`_ file. It replaces the old version
-still available on the `old project pages`__.
+still available on the `old project pages`__. Robot Framework 3.0 introduced
+python 3 support. This guide executes under Python 2.7, 3.3, and newer.
 
 Copyright © Nokia Solutions and Networks. Licensed under the
 `Creative Commons Attribution 3.0 Unported`__ license.
