@@ -4,7 +4,7 @@
   Robot Framework Quick Start Guide
 =====================================
 
-Copyright © Nokia Solutions and Networks. Licensed under the
+Copyright © Nokia Networks. Licensed under the
 `Creative Commons Attribution 3.0 Unported`__ license.
 
 __ http://creativecommons.org/licenses/by/3.0/
@@ -144,18 +144,23 @@ Execution
 
 After installations you still need to get the demo itself. It is easiest to
 download a certain release__ or grab the `latest content`__ and extract the
-package somewhere, but it is also possible to clone the repository__.
+package somewhere, but it is also possible to clone the `project repository`__.
 
 After installations and with all other preconditions in place, you can run
-the demo on the command line by using `pybot` command::
+the demo on the command line by using the `robot` command::
+
+    robot QuickStart.rst
+    
+If you use Robot Framework 2.9 or older, instead of the `robot` command you
+need to use `pybot`::
 
     pybot QuickStart.rst
 
 You can also configure the execution with various command line options::
 
-    pybot --log custom_log.html --name Custom_Name QuickStart.rst
+    robot --log custom_log.html --name Custom_Name QuickStart.rst
 
-For a list of available options run `pybot --help`.
+For a list of available options run `robot --help`.
 
 __ https://github.com/robotframework/QuickStartGuide/releases
 __ https://github.com/robotframework/QuickStartGuide/archive/master.zip
@@ -383,7 +388,7 @@ Variables can also be given from the command line which is useful if
 the tests need to be executed in different environments. For example
 this demo can be executed like::
 
-   pybot --variable USERNAME:johndoe --variable PASSWORD:J0hnD0e QuickStart.rst
+   robot --variable USERNAME:johndoe --variable PASSWORD:J0hnD0e QuickStart.rst
 
 In addition to user defined variables, there are some built-in variables that
 are always available. These variables include `${TEMPDIR}` and `${/}` which
@@ -480,8 +485,8 @@ based on tags. Tags can also be used for many other purposes, one of the most
 important being the possibility to select what tests to execute. You can try,
 for example, following commands::
 
-    pybot --include smoke QuickStart.rst
-    pybot --exclude database QuickStart.rst
+    robot --include smoke QuickStart.rst
+    robot --exclude database QuickStart.rst
 
 Creating test libraries
 =======================
