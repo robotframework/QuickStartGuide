@@ -205,11 +205,18 @@ example, the following table has two tests:
         Attempt to Login with Credentials    betty    wrong
         Status Should Be    Access Denied
 
-Notice that these tests read almost like manual tests written in English
-rather than like automated test cases. Robot Framework uses the keyword-driven
+Notice that these tests read like manual tests written in English rather
+than like automated test cases. Robot Framework uses the keyword-driven
 approach that supports writing tests that capture the essence of the actions
-and expectations in natural language. Test cases are constructed from keywords
-and their possible arguments.
+and expectations in natural language.
+
+Test cases are constructed from keywords and their possible arguments. The
+syntax requires that keywords and arguments, as well as settings and their
+values, are separated by at least two spaces or by a tab character. It is
+generally recommended to use four spaces to make the separator more explicit,
+and in some cases aligning arguments or other values may make the data easier
+to understand. For more details about the syntax see `Robot Framework User
+Guide`_.
 
 Higher-level tests
 ------------------
