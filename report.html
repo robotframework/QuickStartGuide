@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 2.8.6 (Python 2.7.3 on linux2)" name="Generator">
+<meta content="Robot Framework 3.0 (Python 2.7.6 on linux2)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAJEBoACtnfgA5cYYAERsiAEx2lAAbKkQAcazBACZCVwAcM1cAK0ucAAMDBQAnQncASG+FABkoVQAyWmgA6f8SgvH/Ij99+GLyIinyJfn/Yi//KSLzUy9iZogpIld3/4JVVTkid7vyUjNVNVJEAGOZ6Z7pXwAABpmZkRiLAAAGiJZpmGAAAEEt3SXdxAAATC7o/u3EAAC8MRZpjasAAAY1VVVTYAAABKqqqqpAAAAADKqq4AAAAAAAv4sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADAADgAwAA4AcAAOAHAADgBwAAwAcAAOAHAADgDwAA8A8AAPg/AAD+fwAA">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -30,14 +30,14 @@ br {
 }
 a, a:link, a:visited {
     text-decoration: none;
-    color: blue;
+    color: #15c;
 }
 a > img {
-    border: 1px solid blue !important;
+    border: 1px solid #15c !important;
 }
 a:hover, a:active {
     text-decoration: underline;
-    color: purple;
+    color: #61c;
 }
 .parent-name {
     font-size: 0.7em;
@@ -77,19 +77,37 @@ h2 {
     font-size: 1.0em;
 }
 /* Status text colors -- !important allows using them in links */
-.error, .fail {
-    color: red !important;
+.fail {
+    color: #f33 !important;
     font-weight: bold;
 }
 .pass {
-    color: #009900 !important;
+    color: #393 !important;
 }
-.warn {
-    color: #FFCC00 !important;
+.label {
+    padding: 2px 5px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: black;
+    background-color: #ddd;
+    border-radius: 3px;
+}
+.label.debug, .label.trace, .label.error, .label.keyword {
+    letter-spacing: 0;
+}
+.label.error, .label.fail, .label.pass, .label.warn {
+    color: #fff !important;
     font-weight: bold;
 }
-.not-run {
-    color: #444444 !important;
+.label.error, .label.fail {
+    background-color: #d9534f;
+}
+.label.pass {
+    background-color: #5cb85c;
+}
+.label.warn {
+    background-color: #ec971f;
 }
 /* Top right header */
 #top-right-header {
@@ -105,18 +123,19 @@ h2 {
     background: black;
     color: white;
     text-decoration: none;
+    font-weight: bold;
     letter-spacing: 0.1em;
     padding: 0.3em 0;
     border-bottom-left-radius: 4px;
 }
 #report-or-log-link a:hover {
-    color: yellow;
+    color: #ddd;
 }
 #log-level-selector {
     padding: 0.3em 0;
     font-size: 0.9em;
     border-bottom-left-radius: 4px;
-    background: lightgray;
+    background: #ddd;
 }
 /* Statistics table */
 .statistics {
@@ -126,15 +145,15 @@ h2 {
     margin-bottom: 1em;
 }
 .statistics tr:hover {
-    background: #ECECF7;
+    background: #f4f4f4;
     cursor: pointer;
 }
 .statistics th, .statistics td {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding: 0.1em 0.3em;
 }
 .statistics th {
-    background-color: #DCDCF0;
+    background-color: #ddd;
     padding: 0.2em 0.3em;
 }
 .statistics td {
@@ -170,21 +189,21 @@ th.stats-col-graph:hover {
 }
 /* Statistics graph */
 .graph, .empty-graph {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     width: auto;
     height: 7px;
     padding: 0;
-    background: red;
+    background: #f33;
 }
 .empty-graph {
-    background: #E9E9E9;
+    background: #eee;
 }
 .pass-bar, .fail-bar {
     float: left;
     height: 100%;
 }
 .pass-bar {
-    background: #00F000;
+    background: #1d4;
 }
 /* Tablesorter - adapted from provided Blue Skin */
 .tablesorter-header {
@@ -194,22 +213,22 @@ th.stats-col-graph:hover {
     cursor: pointer;
 }
 .tablesorter-header:hover {
-    background-color: #B8C8E3;
+    background-color: #ccc;
 }
 .tablesorter-headerAsc {
     background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
-    background-color: #B8C8E3 !important;
+    background-color: #ccc !important;
 }
 .tablesorter-headerDesc {
     background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
-    background-color: #B8C8E3 !important;
+    background-color: #ccc !important;
 }
 .sorter-false {
     background-image: none;
     cursor: default;
 }
 .sorter-false:hover {
-    background-color: #DCDCF0;
+    background-color: #ddd;
 }
 </style>
 <style media="all" type="text/css">
@@ -222,12 +241,12 @@ tr {
     background: white;
 }
 th {
-    background: #DCDCF0;
+    background: #ddd;
     color: black;
 }
 /* Summary and total/tag/suite details */
 .details {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     border-collapse: collapse;
     clear: both;
     width: 65em;
@@ -273,8 +292,8 @@ th {
 #search-help div {
     margin: 0.5em 0.5em 0.7em 0;
     padding: 0.7em;
-    background: #ECECF7;
-    border: 1px solid #BCBCD7;
+    background: #eee;
+    border: 1px solid #ccc;
     border-radius: 3px;
 }
 #search-help h3, #search-help p {
@@ -309,15 +328,15 @@ th {
 }
 .detail-tab {
     float: left;
-    background: #DCDCF0;
-    border: 1px solid black;
+    background: #ddd;
+    border: 1px solid #ccc;
     border-bottom-width: 0;
     margin: 0 0.5em 0 0;
     padding-top: 0.1em;
     border-radius: 3px 3px 0 0;
 }
 .detail-tab:hover {
-    background: yellow;
+    background: #ccc;
 }
 .detail-tab a {
     color: black;
@@ -337,10 +356,10 @@ th {
 #test-details {
     width: 100%;
     border-spacing: 1px;
-    background-color: black;
+    background-color: #ccc;
 }
 #test-details > tbody > tr:hover {
-    background: #F4F4FF;
+    background: #f4f4f4;
     cursor: pointer;
 }
 #test-details th, #test-details td {
@@ -355,7 +374,7 @@ th {
 }
 .details-col-toggle {
     float: left;
-    color: #808080;
+    color: #6c6c6c; /* same as in sort icon */
     cursor: pointer;
 }
 .details-col-toggle:hover {
@@ -400,7 +419,7 @@ th {
     background-image: none;
 }
 th.hidden:hover {
-    background-color: #DCDCF0;
+    background-color: #ccc;
 }
 </style>
 <style media="print" type="text/css">
@@ -440,7 +459,7 @@ a:link, a:visited {
 }
 .tablesorter-header {
     background-image: none;
-    background: #DCDCF0 !important;
+    background: #ddd !important;
 }
 </style>
 <style media="all" type="text/css">
@@ -448,9 +467,9 @@ a:link, a:visited {
     width: 600px;
     margin: 100px auto 0 auto;
     padding: 20px;
-    color: #2A2A2E;
-    border: 1px solid #9A9A9E;
-    background: #FAFAFF;
+    color: black;
+    border: 1px solid #ccc;
+    background: #eee;
 }
 #javascript-disabled h1 {
     width: 100%;
@@ -478,14 +497,14 @@ a:link, a:visited {
     margin-top: 0.1em;
 }
 .doc table {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     background: transparent;
     border-collapse: collapse;
     empty-cells: show;
     font-size: 0.9em;
 }
 .doc table th, .doc table td {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     background: transparent;
     padding: 0.1em 0.3em;
     height: 1.2em;
@@ -497,22 +516,22 @@ a:link, a:visited {
 .doc pre {
     font-size: 1.1em;
     letter-spacing: 0.05em;
-    background: #F4F4FF;
+    background: #eee;
 }
 .doc code {
     padding: 0 0.2em;
     letter-spacing: 0.05em;
-    background: #F4F4FF;
+    background: #eee;
 }
 .doc li {
     list-style-position: inside;
     list-style-type: square;
 }
 .doc img {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
 }
 .doc hr {
-    background: gray;
+    background: #ccc;
     height: 1px;
     border: 0;
 }
@@ -632,9 +651,11 @@ window.model = (function () {
             for (var i in suites)
                 tests = tests.concat(suites[i].searchTestsInSuite(pattern, matcher));
             return tests;
-        }
+        };
         suite.searchTestsByTag = function (tag) {
             return suite.searchTests(function (test) {
+                if (tag.info == "critical" || tag.info == "non-critical")
+                    return containsTagPattern(test.tags, tag.label);
                 if (tag.combined)
                     return containsTagPattern(test.tags, tag.combined);
                 return containsTag(test.tags, tag.label);
@@ -663,6 +684,10 @@ window.model = (function () {
         var patterns;
         if (pattern.indexOf('NOT') != -1) {
             patterns = pattern.split('NOT');
+            if (!util.normalize(patterns[0]))
+                return util.all(util.map(patterns.slice(1), function (p) {
+                    return !containsTagPattern(testTags, p);
+                }));
             return containsTagPattern(testTags, patterns[0]) &&
                 util.all(util.map(patterns.slice(1), function (p) {
                     return !containsTagPattern(testTags, p);
@@ -733,8 +758,11 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
+        kw.libname = data.libname;
         kw.type = data.type;
         kw.arguments = data.args;
+        kw.assign = data.assign + (data.assign ? ' =' : '');
+        kw.tags = data.tags;
         kw.timeout = data.timeout;
         kw.populateMessages = createIterablePopulator('Message');
         kw.populateKeywords = createIterablePopulator('Keyword');
@@ -929,7 +957,7 @@ window.util = function () {
     }
     function Matcher(pattern) {
         pattern = regexpEscape(normalize(pattern));
-        var rePattern = '^' + pattern.replace(/\\\?/g, ".").replace(/\\\*/g, ".*") + '$';
+        var rePattern = '^' + pattern.replace(/\\\?/g, '.').replace(/\\\*/g, '[\\s\\S]*') + '$';
         var regexp = new RegExp(rePattern);
         function matches(string) {
             return regexp.test(normalize(string));
@@ -1055,6 +1083,7 @@ window.util = function () {
         escape: escape,
         unescape: unescape,
         normalize: normalize,
+        regexpEscape: regexpEscape,
         Matcher: Matcher,
         formatParentName: formatParentName,
         timeFromDate: timeFromDate,
@@ -1072,7 +1101,7 @@ window.testdata = function () {
     var elementsById = {};
     var idCounter = 0;
     var _statistics = null;
-    var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'FAIL', 'ERROR'];
+    var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL'];
     var STATUSES = ['FAIL', 'PASS', 'NOT_RUN'];
     var KEYWORDS = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR'];
     function addElement(elem) {
@@ -1114,30 +1143,36 @@ window.testdata = function () {
             type: KEYWORDS[element[0]],
             id: 'k' + (index + 1),
             name: strings.get(element[1]),
-            timeout: strings.get(element[2]),
-            args: strings.get(element[4]),
+            libname: strings.get(element[2]),
+            timeout: strings.get(element[3]),
+            args: strings.get(element[5]),
+            assign: strings.get(element[6]),
+            tags: strings.get(element[7]),
             doc: function () {
-                var doc = strings.get(element[3]);
+                var doc = strings.get(element[4]);
                 this.doc = function () { return doc; };
                 return doc;
             },
-            status: parseStatus(element[5], strings),
-            times: model.Times(times(element[5])),
-            isChildrenLoaded: typeof(element[6]) !== 'number'
+            status: parseStatus(element[8], strings),
+            times: model.Times(times(element[8])),
+            isChildrenLoaded: typeof(element[9]) !== 'number'
         });
-        lazyPopulateKeywordsFromFile(kw, element[6], strings);
-        kw.populateMessages(Populator(element[7], strings, message));
+        lazyPopulateKeywordsFromFile(kw, element[9], strings);
+        kw.populateMessages(Populator(element[10], strings, message));
         return kw;
     }
-    function lazyPopulateKeywordsFromFile(parent, keywordsOrIndex, strings) {
+    function lazyPopulateKeywordsFromFile(parent, modelOrIndex, strings) {
+        var model, index, populator;
+        var creator = childCreator(parent, createKeyword);
         if (parent.isChildrenLoaded) {
-            var keywords = keywordsOrIndex;
-            parent.populateKeywords(Populator(keywords, strings, childCreator(parent, createKeyword)));
+            model = modelOrIndex;
+            populator = Populator(model, strings, creator);
         } else {
-            var index = keywordsOrIndex;
+            index = modelOrIndex;
             parent.childFileName = window.settings['splitLogBase'] + '-' + index + '.js';
-            parent.populateKeywords(SplitLogPopulator(keywordsOrIndex, childCreator(parent, createKeyword)));
+            populator = SplitLogPopulator(index, creator);
         }
+        parent.populateKeywords(populator);
     }
     function tags(taglist, strings) {
         return util.map(taglist, strings.get);
@@ -1522,7 +1557,7 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,401],[],[[4,0,1,0,[5,6,7],[1,32,35],[]],[8,0,1,0,[5,6,7],[1,68,41],[]],[9,0,1,0,[5,6,7],[1,109,92],[]],[10,0,1,0,[5,6,7],[1,202,148],[]],[11,0,1,0,[12,6,13],[1,350,51],[]]],[],[5,5,5,5]];
+window.output["suite"] = [1,2,3,0,[],[1,0,284],[],[[4,0,1,0,[5,6,7],[1,31,31],[]],[8,0,1,0,[5,6,7],[1,63,30],[]],[9,0,1,0,[5,6,7],[1,93,62],[]],[10,0,1,0,[5,6,7],[1,155,94],[]],[11,0,1,0,[12,6,13],[1,249,35],[]]],[],[5,5,5,5]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
@@ -1531,19 +1566,19 @@ window.output["strings"] = [];
 window.output["strings"] = window.output["strings"].concat(["*","*QuickStart","*/home/peke/Devel/QuickStartGuide/QuickStart.rst","*../QuickStart.rst","*User can create an account and log in","*example","*quickstart","*smoke","*User cannot log in with bad password","*User can change password","*Invalid password","*User status is stored in database","*database","*variables"]);
 </script>
 <script type="text/javascript">
-window.output["generatedTimestamp"] = "20141024 10:47:00 GMT +03:00";
-</script>
-<script type="text/javascript">
 window.output["stats"] = [[{"elapsed":"00:00:00","fail":0,"label":"Critical Tests","pass":5},{"elapsed":"00:00:00","fail":0,"label":"All Tests","pass":5}],[{"elapsed":"00:00:00","fail":0,"label":"database","pass":1},{"elapsed":"00:00:00","fail":0,"label":"example","pass":4},{"elapsed":"00:00:00","fail":0,"label":"quickstart","pass":5},{"elapsed":"00:00:00","fail":0,"label":"smoke","pass":4},{"elapsed":"00:00:00","fail":0,"label":"variables","pass":1}],[{"elapsed":"00:00:00","fail":0,"id":"s1","label":"QuickStart","name":"QuickStart","pass":5}]];
 </script>
 <script type="text/javascript">
-window.output["generatedMillis"] = -380;
+window.output["baseMillis"] = 1453891944782;
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1414136820380;
+window.output["generatedMillis"] = 218;
 </script>
 <script type="text/javascript">
-window.settings = {"background":{"fail":"#FF3333","nonCriticalFail":"#99FF66","pass":"#99FF66"},"logURL":"log.html","title":""};
+window.output["generatedTimestamp"] = "20160127 12:52:25 GMT +03:00";
+</script>
+<script type="text/javascript">
+window.settings = {"background":{"fail":"#f66","nonCriticalFail":"#9e9","pass":"#9e9"},"logURL":"log.html","title":""};
 </script>
 <title></title>
 </head>
@@ -1630,7 +1665,7 @@ function addCustomSortersForDetails() {
 function showDetailsByHash() {
     // Cannot use window.location.hash because Firefox incorrectly decodes it:
     // http://stackoverflow.com/questions/1703552/encoding-of-window-location-hash
-    var hash = window.location.href.split('#').splice(1).join('#');
+    var hash = window.location.href.split('#').slice(1).join('#');
     if (!hash || hash == window.prevLocationHash)
         return;
     var parts = hash.split('?');
@@ -2214,8 +2249,11 @@ function hideHiddenDetailsColumns(elem) {
               </tr>
               <tr>
                 <td>NOT</td>
-                <td>Matches if pattern before matches and pattern after does not.</td>
-                <td>foo NOT bar<br>* NOT id-* AND smoke</td>
+                <td>
+                    Matches if (optional) pattern before matches and pattern
+                    after does not.
+                </td>
+                <td>foo NOT bar<br>* NOT id-* AND smoke<br>NOT bar</td>
               </tr>
             </table>
           </div>
@@ -2349,7 +2387,7 @@ function hideHiddenDetailsColumns(elem) {
     <td class="details-col-doc"><div class="doc details-limited">{{html doc()}}</div></td>
     <td class="details-col-tags"><div>{{html tags.join(', ')}}</div></td>
     <td class="details-col-crit"><div>{{if isCritical}}yes{{else}}no{{/if}}</div></td>
-    <td class="details-col-status"><div class="${status.toLowerCase()}">${status}</div></td>
+    <td class="details-col-status"><div><span class="label ${status.toLowerCase()}">${status}</span></div></td>
     <td class="details-col-msg"><div class="message details-limited">{{html message()}}</div></td>
     <td class="details-col-elapsed"><div>${times.elapsedTime}</div></td>
     <td class="details-col-times"><div>${times.startTime}<br>${times.endTime}</div></td>

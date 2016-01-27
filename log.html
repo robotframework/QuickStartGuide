@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 2.8.6 (Python 2.7.3 on linux2)" name="Generator">
+<meta content="Robot Framework 3.0 (Python 2.7.6 on linux2)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAJEBoACtnfgA5cYYAERsiAEx2lAAbKkQAcazBACZCVwAcM1cAK0ucAAMDBQAnQncASG+FABkoVQAyWmgA6f8SgvH/Ij99+GLyIinyJfn/Yi//KSLzUy9iZogpIld3/4JVVTkid7vyUjNVNVJEAGOZ6Z7pXwAABpmZkRiLAAAGiJZpmGAAAEEt3SXdxAAATC7o/u3EAAC8MRZpjasAAAY1VVVTYAAABKqqqqpAAAAADKqq4AAAAAAAv4sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADAADgAwAA4AcAAOAHAADgBwAAwAcAAOAHAADgDwAA8A8AAPg/AAD+fwAA">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -30,14 +30,14 @@ br {
 }
 a, a:link, a:visited {
     text-decoration: none;
-    color: blue;
+    color: #15c;
 }
 a > img {
-    border: 1px solid blue !important;
+    border: 1px solid #15c !important;
 }
 a:hover, a:active {
     text-decoration: underline;
-    color: purple;
+    color: #61c;
 }
 .parent-name {
     font-size: 0.7em;
@@ -77,19 +77,37 @@ h2 {
     font-size: 1.0em;
 }
 /* Status text colors -- !important allows using them in links */
-.error, .fail {
-    color: red !important;
+.fail {
+    color: #f33 !important;
     font-weight: bold;
 }
 .pass {
-    color: #009900 !important;
+    color: #393 !important;
 }
-.warn {
-    color: #FFCC00 !important;
+.label {
+    padding: 2px 5px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: black;
+    background-color: #ddd;
+    border-radius: 3px;
+}
+.label.debug, .label.trace, .label.error, .label.keyword {
+    letter-spacing: 0;
+}
+.label.error, .label.fail, .label.pass, .label.warn {
+    color: #fff !important;
     font-weight: bold;
 }
-.not-run {
-    color: #444444 !important;
+.label.error, .label.fail {
+    background-color: #d9534f;
+}
+.label.pass {
+    background-color: #5cb85c;
+}
+.label.warn {
+    background-color: #ec971f;
 }
 /* Top right header */
 #top-right-header {
@@ -105,18 +123,19 @@ h2 {
     background: black;
     color: white;
     text-decoration: none;
+    font-weight: bold;
     letter-spacing: 0.1em;
     padding: 0.3em 0;
     border-bottom-left-radius: 4px;
 }
 #report-or-log-link a:hover {
-    color: yellow;
+    color: #ddd;
 }
 #log-level-selector {
     padding: 0.3em 0;
     font-size: 0.9em;
     border-bottom-left-radius: 4px;
-    background: lightgray;
+    background: #ddd;
 }
 /* Statistics table */
 .statistics {
@@ -126,15 +145,15 @@ h2 {
     margin-bottom: 1em;
 }
 .statistics tr:hover {
-    background: #ECECF7;
+    background: #f4f4f4;
     cursor: pointer;
 }
 .statistics th, .statistics td {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding: 0.1em 0.3em;
 }
 .statistics th {
-    background-color: #DCDCF0;
+    background-color: #ddd;
     padding: 0.2em 0.3em;
 }
 .statistics td {
@@ -170,21 +189,21 @@ th.stats-col-graph:hover {
 }
 /* Statistics graph */
 .graph, .empty-graph {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     width: auto;
     height: 7px;
     padding: 0;
-    background: red;
+    background: #f33;
 }
 .empty-graph {
-    background: #E9E9E9;
+    background: #eee;
 }
 .pass-bar, .fail-bar {
     float: left;
     height: 100%;
 }
 .pass-bar {
-    background: #00F000;
+    background: #1d4;
 }
 /* Tablesorter - adapted from provided Blue Skin */
 .tablesorter-header {
@@ -194,22 +213,22 @@ th.stats-col-graph:hover {
     cursor: pointer;
 }
 .tablesorter-header:hover {
-    background-color: #B8C8E3;
+    background-color: #ccc;
 }
 .tablesorter-headerAsc {
     background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
-    background-color: #B8C8E3 !important;
+    background-color: #ccc !important;
 }
 .tablesorter-headerDesc {
     background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
-    background-color: #B8C8E3 !important;
+    background-color: #ccc !important;
 }
 .sorter-false {
     background-image: none;
     cursor: default;
 }
 .sorter-false:hover {
-    background-color: #DCDCF0;
+    background-color: #ddd;
 }
 </style>
 <style media="all" type="text/css">
@@ -217,7 +236,7 @@ th.stats-col-graph:hover {
    Licensed under the MIT License. */
 /* Containers */
 .suite, .test, #errors {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     padding: 0.3em 0.2em;
     margin: 0.2em 0;
 }
@@ -246,13 +265,13 @@ th.stats-col-graph:hover {
 }
 .element-header:hover {
     cursor: pointer;
-    background-color: #ECECF7;
-    border-color: #BCBCD7;
+    background-color: #eee;
+    border-color: #ccc;
 }
 .element-header-toggle {
     position: absolute;
     left: 3px;
-    top: 4px;
+    top: 5px;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JChSkZz20AAAAGklEQVQI12NgQAKMDKzInP8IDhOqMk4G7AAANQwBE427PYUAAAAASUVORK5CYII=);
@@ -260,7 +279,7 @@ th.stats-col-graph:hover {
     height: 10px;
     width: 10px;
     background-size: 6px 6px;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     border-radius: 2px;
 }
 .closed > .element-header-toggle {
@@ -268,7 +287,7 @@ th.stats-col-graph:hover {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0zIDB2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN2LTNoLTJ6IiAvPgo8L3N2Zz4=), none;
 }
 .element-header:hover > .element-header-toggle {
-    background-color: yellow;
+    background-color: #ccc;
 }
 .element-header-right:hover ~ .element-header-toggle {
     background-color: transparent;
@@ -288,7 +307,7 @@ th.stats-col-graph:hover {
 }
 .elapsed {
     float: right;
-    color: #808080;
+    color: #999;
     padding-left: 1em;
 }
 .link {
@@ -313,7 +332,7 @@ th.stats-col-graph:hover {
     background-size: 8px 8px;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     border-radius: 2px;
 }
 .link {
@@ -323,25 +342,30 @@ th.stats-col-graph:hover {
     visibility: visible;
 }
 .expand:hover, .collapse:hover, .link:hover {
-    background-color: yellow;
+    background-color: #ccc;
 }
 /* Messages and errors */
-.messages {
+.messages .time, .messages .message {
     font-family: monospace;
     font-size: 1.1em;
+}
+#errors .message {
+    font-family: monospace;
+    font-size: 1.2em;
 }
 .message-row {
     height: 20px;
 }
 .time {
-    width: 8em;
+    width: 7.5em;
 }
 .error-time {
     width: 11em;
+    font-size: 0.9em;
     white-space: nowrap;
 }
 .level {
-    width: 4.5em;
+    width: 5em;
     text-align: center;
 }
 .select-message {
@@ -359,11 +383,11 @@ th.stats-col-graph:hover {
 .message-row:hover .select-message div {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0MOzhWKZQOAAAASUlEQVQY032PsRHAIAwDX9BkicD+W8UMEqegAQJWKZ/+3sLZJhFGQEZzNaIa4ibh66En867VNaIeoP5WppNuIGoAlOm3g5VC1AdYeQv1BZPRSgAAAABJRU5ErkJggg==);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2MWg4di0xaC04em0wIDJ2MWg2di0xaC02em0wIDJ2MWg4di0xaC04em0wIDJ2MWg2di0xaC02eiIgLz4KPC9zdmc+), none;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     border-radius: 2px;
 }
 .select-message:hover div {
-    background-color: yellow;
+    background-color: #ccc;
     cursor: pointer;
 }
 /* Message tables - these MUST NOT be combined together because otherwise
@@ -429,7 +453,7 @@ a:link, a:visited {
 }
 .tablesorter-header {
     background-image: none;
-    background: #DCDCF0 !important;
+    background: #ddd !important;
 }
 </style>
 <style media="all" type="text/css">
@@ -437,9 +461,9 @@ a:link, a:visited {
     width: 600px;
     margin: 100px auto 0 auto;
     padding: 20px;
-    color: #2A2A2E;
-    border: 1px solid #9A9A9E;
-    background: #FAFAFF;
+    color: black;
+    border: 1px solid #ccc;
+    background: #eee;
 }
 #javascript-disabled h1 {
     width: 100%;
@@ -467,14 +491,14 @@ a:link, a:visited {
     margin-top: 0.1em;
 }
 .doc table {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     background: transparent;
     border-collapse: collapse;
     empty-cells: show;
     font-size: 0.9em;
 }
 .doc table th, .doc table td {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     background: transparent;
     padding: 0.1em 0.3em;
     height: 1.2em;
@@ -486,22 +510,22 @@ a:link, a:visited {
 .doc pre {
     font-size: 1.1em;
     letter-spacing: 0.05em;
-    background: #F4F4FF;
+    background: #eee;
 }
 .doc code {
     padding: 0 0.2em;
     letter-spacing: 0.05em;
-    background: #F4F4FF;
+    background: #eee;
 }
 .doc li {
     list-style-position: inside;
     list-style-type: square;
 }
 .doc img {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
 }
 .doc hr {
-    background: gray;
+    background: #ccc;
     height: 1px;
     border: 0;
 }
@@ -808,9 +832,11 @@ window.model = (function () {
             for (var i in suites)
                 tests = tests.concat(suites[i].searchTestsInSuite(pattern, matcher));
             return tests;
-        }
+        };
         suite.searchTestsByTag = function (tag) {
             return suite.searchTests(function (test) {
+                if (tag.info == "critical" || tag.info == "non-critical")
+                    return containsTagPattern(test.tags, tag.label);
                 if (tag.combined)
                     return containsTagPattern(test.tags, tag.combined);
                 return containsTag(test.tags, tag.label);
@@ -839,6 +865,10 @@ window.model = (function () {
         var patterns;
         if (pattern.indexOf('NOT') != -1) {
             patterns = pattern.split('NOT');
+            if (!util.normalize(patterns[0]))
+                return util.all(util.map(patterns.slice(1), function (p) {
+                    return !containsTagPattern(testTags, p);
+                }));
             return containsTagPattern(testTags, patterns[0]) &&
                 util.all(util.map(patterns.slice(1), function (p) {
                     return !containsTagPattern(testTags, p);
@@ -909,8 +939,11 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
+        kw.libname = data.libname;
         kw.type = data.type;
         kw.arguments = data.args;
+        kw.assign = data.assign + (data.assign ? ' =' : '');
+        kw.tags = data.tags;
         kw.timeout = data.timeout;
         kw.populateMessages = createIterablePopulator('Message');
         kw.populateKeywords = createIterablePopulator('Keyword');
@@ -1105,7 +1138,7 @@ window.util = function () {
     }
     function Matcher(pattern) {
         pattern = regexpEscape(normalize(pattern));
-        var rePattern = '^' + pattern.replace(/\\\?/g, ".").replace(/\\\*/g, ".*") + '$';
+        var rePattern = '^' + pattern.replace(/\\\?/g, '.').replace(/\\\*/g, '[\\s\\S]*') + '$';
         var regexp = new RegExp(rePattern);
         function matches(string) {
             return regexp.test(normalize(string));
@@ -1231,6 +1264,7 @@ window.util = function () {
         escape: escape,
         unescape: unescape,
         normalize: normalize,
+        regexpEscape: regexpEscape,
         Matcher: Matcher,
         formatParentName: formatParentName,
         timeFromDate: timeFromDate,
@@ -1248,7 +1282,7 @@ window.testdata = function () {
     var elementsById = {};
     var idCounter = 0;
     var _statistics = null;
-    var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'FAIL', 'ERROR'];
+    var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL'];
     var STATUSES = ['FAIL', 'PASS', 'NOT_RUN'];
     var KEYWORDS = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR'];
     function addElement(elem) {
@@ -1290,30 +1324,36 @@ window.testdata = function () {
             type: KEYWORDS[element[0]],
             id: 'k' + (index + 1),
             name: strings.get(element[1]),
-            timeout: strings.get(element[2]),
-            args: strings.get(element[4]),
+            libname: strings.get(element[2]),
+            timeout: strings.get(element[3]),
+            args: strings.get(element[5]),
+            assign: strings.get(element[6]),
+            tags: strings.get(element[7]),
             doc: function () {
-                var doc = strings.get(element[3]);
+                var doc = strings.get(element[4]);
                 this.doc = function () { return doc; };
                 return doc;
             },
-            status: parseStatus(element[5], strings),
-            times: model.Times(times(element[5])),
-            isChildrenLoaded: typeof(element[6]) !== 'number'
+            status: parseStatus(element[8], strings),
+            times: model.Times(times(element[8])),
+            isChildrenLoaded: typeof(element[9]) !== 'number'
         });
-        lazyPopulateKeywordsFromFile(kw, element[6], strings);
-        kw.populateMessages(Populator(element[7], strings, message));
+        lazyPopulateKeywordsFromFile(kw, element[9], strings);
+        kw.populateMessages(Populator(element[10], strings, message));
         return kw;
     }
-    function lazyPopulateKeywordsFromFile(parent, keywordsOrIndex, strings) {
+    function lazyPopulateKeywordsFromFile(parent, modelOrIndex, strings) {
+        var model, index, populator;
+        var creator = childCreator(parent, createKeyword);
         if (parent.isChildrenLoaded) {
-            var keywords = keywordsOrIndex;
-            parent.populateKeywords(Populator(keywords, strings, childCreator(parent, createKeyword)));
+            model = modelOrIndex;
+            populator = Populator(model, strings, creator);
         } else {
-            var index = keywordsOrIndex;
+            index = modelOrIndex;
             parent.childFileName = window.settings['splitLogBase'] + '-' + index + '.js';
-            parent.populateKeywords(SplitLogPopulator(keywordsOrIndex, childCreator(parent, createKeyword)));
+            populator = SplitLogPopulator(index, creator);
         }
+        parent.populateKeywords(populator);
     }
     function tags(taglist, strings) {
         return util.map(taglist, strings.get);
@@ -1677,28 +1717,28 @@ function stopPropagation(event) {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,401],[],[[4,0,1,0,[5,6,7],[1,32,35],[[0,8,0,0,9,[1,32,16],[[0,10,0,0,11,[1,33,13],[],[]],[0,12,0,0,13,[1,47,0],[],[]]],[]],[0,14,0,0,9,[1,48,16],[],[]],[0,12,0,0,15,[1,65,0],[],[]],[2,16,0,0,0,[1,66,1],[[0,17,0,18,19,[1,66,1],[],[[67,2,20]]]],[]]]],[21,0,1,0,[5,6,7],[1,68,41],[[0,8,0,0,22,[1,69,19],[[0,10,0,0,11,[1,69,17],[],[]],[0,12,0,0,13,[1,87,0],[],[]]],[]],[0,14,0,0,23,[1,88,19],[],[]],[0,12,0,0,24,[1,107,1],[],[]],[2,16,0,0,0,[1,108,1],[[0,17,0,18,19,[1,108,1],[],[[109,2,20]]]],[]]]],[25,0,1,0,[5,6,7],[1,109,92],[[0,26,0,0,0,[1,110,26],[[0,8,0,0,27,[1,110,26],[[0,10,0,0,11,[1,111,23],[],[]],[0,12,0,0,13,[1,135,0],[],[]]],[]]],[]],[0,28,0,0,0,[1,136,16],[[0,29,0,0,30,[1,137,13],[],[]],[0,12,0,0,13,[1,151,1],[],[]]],[]],[0,31,0,0,0,[1,153,27],[[0,32,0,0,33,[1,154,26],[[0,14,0,0,11,[1,155,23],[],[]],[0,12,0,0,15,[1,179,0],[],[]]],[]]],[]],[0,34,0,0,0,[1,181,16],[[0,14,0,0,27,[1,181,14],[],[]],[0,12,0,0,24,[1,196,1],[],[]]],[]],[2,16,0,0,0,[1,198,2],[[0,17,0,18,19,[1,198,2],[],[[200,2,20]]]],[]]]],[35,0,1,0,[5,6,7],[1,202,148],[[0,36,0,0,37,[1,204,25],[[0,10,0,0,38,[1,205,22],[],[]],[0,12,0,0,39,[1,228,1],[],[]]],[]],[0,36,0,0,40,[1,230,23],[[0,10,0,0,38,[1,231,20],[],[]],[0,12,0,0,39,[1,252,1],[],[]]],[]],[0,36,0,0,41,[1,254,17],[[0,10,0,0,38,[1,255,14],[],[]],[0,12,0,0,39,[1,270,0],[],[]]],[]],[0,36,0,0,42,[1,271,28],[[0,10,0,0,38,[1,272,25],[],[]],[0,12,0,0,39,[1,298,0],[],[]]],[]],[0,36,0,0,43,[1,299,27],[[0,10,0,0,38,[1,300,24],[],[]],[0,12,0,0,39,[1,325,1],[],[]]],[]],[0,36,0,0,44,[1,326,22],[[0,10,0,0,38,[1,328,19],[],[]],[0,12,0,0,39,[1,348,0],[],[]]],[]],[2,16,0,0,0,[1,348,2],[[0,17,0,18,19,[1,349,1],[],[[350,2,20]]]],[]]]],[45,0,1,0,[46,6,47],[1,350,51],[[0,8,0,0,27,[1,351,14],[[0,10,0,0,11,[1,351,13],[],[]],[0,12,0,0,13,[1,365,0],[],[]]],[]],[0,48,0,0,49,[1,365,5],[[0,50,0,51,19,[1,367,0],[],[[367,2,52],[368,2,53]]],[0,54,0,55,56,[1,368,2],[],[]]],[]],[0,32,0,0,27,[1,370,25],[[0,14,0,0,11,[1,373,20],[],[]],[0,12,0,0,15,[1,394,1],[],[]]],[]],[0,48,0,0,57,[1,396,3],[[0,50,0,51,19,[1,397,1],[],[[398,2,52],[398,2,58]]],[0,54,0,55,56,[1,398,0],[],[]]],[]],[2,16,0,0,0,[1,399,1],[[0,17,0,18,19,[1,399,1],[],[[400,2,20]]]],[]]]]],[[1,16,0,0,0,[1,31,1],[[0,17,0,18,19,[1,31,1],[],[[31,2,59]]]],[]]],[5,5,5,5]];
+window.output["suite"] = [1,2,3,0,[],[1,0,284],[],[[4,0,1,0,[5,6,7],[1,31,31],[[0,8,0,0,0,9,0,0,[1,31,14],[[0,10,11,0,0,12,0,0,[1,31,14],[],[]],[0,13,11,0,0,14,0,0,[1,45,0],[],[]]],[]],[0,15,11,0,0,9,0,0,[1,46,14],[],[]],[0,13,11,0,0,16,0,0,[1,60,1],[],[]],[2,17,0,0,0,0,0,0,[1,61,1],[[0,18,19,0,20,21,0,0,[1,62,0],[],[[62,2,22]]]],[]]]],[23,0,1,0,[5,6,7],[1,63,30],[[0,8,0,0,0,24,0,0,[1,63,14],[[0,10,11,0,0,12,0,0,[1,63,13],[],[]],[0,13,11,0,0,14,0,0,[1,77,0],[],[]]],[]],[0,15,11,0,0,25,0,0,[1,77,14],[],[]],[0,13,11,0,0,26,0,0,[1,91,0],[],[]],[2,17,0,0,0,0,0,0,[1,92,0],[[0,18,19,0,20,21,0,0,[1,92,0],[],[[92,2,22]]]],[]]]],[27,0,1,0,[5,6,7],[1,93,62],[[0,28,0,0,0,0,0,0,[1,94,14],[[0,8,0,0,0,29,0,0,[1,94,14],[[0,10,11,0,0,12,0,0,[1,95,13],[],[]],[0,13,11,0,0,14,0,0,[1,108,0],[],[]]],[]]],[]],[0,30,0,0,0,0,0,0,[1,109,14],[[0,31,11,0,0,32,0,0,[1,109,14],[],[]],[0,13,11,0,0,14,0,0,[1,123,0],[],[]]],[]],[0,33,0,0,0,0,0,0,[1,124,15],[[0,34,0,0,0,35,0,0,[1,124,15],[[0,15,11,0,0,12,0,0,[1,124,14],[],[]],[0,13,11,0,0,16,0,0,[1,139,0],[],[]]],[]]],[]],[0,36,0,0,0,0,0,0,[1,139,15],[[0,15,11,0,0,29,0,0,[1,140,13],[],[]],[0,13,11,0,0,26,0,0,[1,153,1],[],[]]],[]],[2,17,0,0,0,0,0,0,[1,154,1],[[0,18,19,0,20,21,0,0,[1,154,1],[],[[155,2,22]]]],[]]]],[37,0,1,0,[5,6,7],[1,155,94],[[0,38,0,0,0,39,0,0,[1,156,15],[[0,10,11,0,0,40,0,0,[1,156,14],[],[]],[0,13,11,0,0,41,0,0,[1,170,1],[],[]]],[]],[0,38,0,0,0,42,0,0,[1,171,15],[[0,10,11,0,0,40,0,0,[1,171,14],[],[]],[0,13,11,0,0,41,0,0,[1,185,1],[],[]]],[]],[0,38,0,0,0,43,0,0,[1,186,15],[[0,10,11,0,0,40,0,0,[1,187,13],[],[]],[0,13,11,0,0,41,0,0,[1,200,1],[],[]]],[]],[0,38,0,0,0,44,0,0,[1,201,16],[[0,10,11,0,0,40,0,0,[1,201,15],[],[]],[0,13,11,0,0,41,0,0,[1,217,0],[],[]]],[]],[0,38,0,0,0,45,0,0,[1,217,15],[[0,10,11,0,0,40,0,0,[1,218,14],[],[]],[0,13,11,0,0,41,0,0,[1,232,0],[],[]]],[]],[0,38,0,0,0,46,0,0,[1,233,15],[[0,10,11,0,0,40,0,0,[1,233,14],[],[]],[0,13,11,0,0,41,0,0,[1,247,1],[],[]]],[]],[2,17,0,0,0,0,0,0,[1,248,1],[[0,18,19,0,20,21,0,0,[1,248,1],[],[[249,2,22]]]],[]]]],[47,0,1,0,[48,6,49],[1,249,35],[[0,8,0,0,0,29,0,0,[1,250,14],[[0,10,11,0,0,12,0,0,[1,250,14],[],[]],[0,13,11,0,0,14,0,0,[1,264,0],[],[]]],[]],[0,50,0,0,0,51,0,0,[1,264,2],[[0,52,19,0,53,21,54,0,[1,265,0],[],[[265,2,55],[265,2,56]]],[0,57,58,0,59,60,0,0,[1,266,0],[],[]]],[]],[0,34,0,0,0,29,0,0,[1,266,15],[[0,15,11,0,0,12,0,0,[1,266,14],[],[]],[0,13,11,0,0,16,0,0,[1,281,0],[],[]]],[]],[0,50,0,0,0,61,0,0,[1,281,2],[[0,52,19,0,53,21,54,0,[1,282,0],[],[[282,2,55],[282,2,62]]],[0,57,58,0,59,60,0,0,[1,282,1],[],[]]],[]],[2,17,0,0,0,0,0,0,[1,283,1],[[0,18,19,0,20,21,0,0,[1,283,1],[],[[283,2,22]]]],[]]]]],[[1,17,0,0,0,0,0,0,[1,29,2],[[0,18,19,0,20,21,0,0,[1,30,0],[],[[30,2,63]]]],[]]],[5,5,5,5]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*QuickStart","*/home/peke/Devel/QuickStartGuide/QuickStart.rst","*../QuickStart.rst","*User can create an account and log in","*example","*quickstart","*smoke","*Create valid user","*fred, P4ssw0rd","*LoginLibrary.Create User","*${username}, ${password}","*LoginLibrary.Status Should Be","*SUCCESS","*LoginLibrary.Attempt To Login With Credentials","*Logged In","*Clear login database","*OperatingSystem.Remove File","*<p>Removes a file with the given path.\x3c/p>","*${DATABASE FILE}","*Removed file '<a href=\"file:///tmp/robotframework-quickstart-db.txt\">/tmp/robotframework-quickstart-db.txt\x3c/a>'","*User cannot log in with bad password","*betty, P4ssw0rd","*betty, wrong","*Access Denied","*User can change password","*Given a user has a valid account","*${USERNAME}, ${PASSWORD}","*When she changes her password","*LoginLibrary.Change Password","*${USERNAME}, ${PASSWORD}, ${NEW PASSWORD}","*Then she can log in with the new password","*Login","*${USERNAME}, ${NEW PASSWORD}","*And she cannot use the old password anymore","*Invalid password","*Creating user with invalid password should fail","*abCD5, ${PWD INVALID LENGTH}","*example, ${password}","*Creating user failed: ${error}","*abCD567890123, ${PWD INVALID LENGTH}","*123DEFG, ${PWD INVALID CONTENT}","*abcd56789, ${PWD INVALID CONTENT}","*AbCdEfGh, ${PWD INVALID CONTENT}","*abCD56+, ${PWD INVALID CONTENT}","*User status is stored in database","*database","*variables","*Database Should Contain","*${USERNAME}, ${PASSWORD}, Inactive","*${database} = OperatingSystem.Get File","*<p>Returns the contents of a specified file.\x3c/p>","*Getting file '<a href=\"file:///tmp/robotframework-quickstart-db.txt\">/tmp/robotframework-quickstart-db.txt\x3c/a>'","*${database} = janedoe\tJ4n3D0e\tInactive\n","*BuiltIn.Should Contain","*<p>Fails if `item1` does not contain `item2` one or more times.\x3c/p>","*${database}, ${username}\\t${password}\\t${status}\\n","*${USERNAME}, ${PASSWORD}, Active","*${database} = janedoe\tJ4n3D0e\tActive\n","*File '<a href=\"file:///tmp/robotframework-quickstart-db.txt\">/tmp/robotframework-quickstart-db.txt\x3c/a>' does not exist"]);
-</script>
-<script type="text/javascript">
-window.output["generatedTimestamp"] = "20141024 10:47:00 GMT +03:00";
-</script>
-<script type="text/javascript">
-window.output["errors"] = [];
+window.output["strings"] = window.output["strings"].concat(["*","*QuickStart","*/home/peke/Devel/QuickStartGuide/QuickStart.rst","*../QuickStart.rst","*User can create an account and log in","*example","*quickstart","*smoke","*Create valid user","*fred, P4ssw0rd","*Create User","*LoginLibrary","*${username}, ${password}","*Status Should Be","*SUCCESS","*Attempt To Login With Credentials","*Logged In","*Clear login database","*Remove File","*OperatingSystem","*<p>Removes a file with the given path.\x3c/p>","*${DATABASE FILE}","*Removed file '<a href=\"file:///tmp/robotframework-quickstart-db.txt\">/tmp/robotframework-quickstart-db.txt\x3c/a>'.","*User cannot log in with bad password","*betty, P4ssw0rd","*betty, wrong","*Access Denied","*User can change password","*Given a user has a valid account","*${USERNAME}, ${PASSWORD}","*When she changes her password","*Change Password","*${USERNAME}, ${PASSWORD}, ${NEW PASSWORD}","*Then she can log in with the new password","*Login","*${USERNAME}, ${NEW PASSWORD}","*And she cannot use the old password anymore","*Invalid password","*Creating user with invalid password should fail","*abCD5, ${PWD INVALID LENGTH}","*example, ${password}","*Creating user failed: ${error}","*abCD567890123, ${PWD INVALID LENGTH}","*123DEFG, ${PWD INVALID CONTENT}","*abcd56789, ${PWD INVALID CONTENT}","*AbCdEfGh, ${PWD INVALID CONTENT}","*abCD56+, ${PWD INVALID CONTENT}","*User status is stored in database","*database","*variables","*Database Should Contain","*${USERNAME}, ${PASSWORD}, Inactive","*Get File","*<p>Returns the contents of a specified file.\x3c/p>","*${database}","*Getting file '<a href=\"file:///tmp/robotframework-quickstart-db.txt\">/tmp/robotframework-quickstart-db.txt\x3c/a>'.","*${database} = janedoe\tJ4n3D0e\tInactive\n","*Should Contain","*BuiltIn","*<p>Fails if <code>container\x3c/code> does not contain <code>item\x3c/code> one or more times.\x3c/p>","*${database}, ${username}\\t${password}\\t${status}\\n","*${USERNAME}, ${PASSWORD}, Active","*${database} = janedoe\tJ4n3D0e\tActive\n","*File '<a href=\"file:///tmp/robotframework-quickstart-db.txt\">/tmp/robotframework-quickstart-db.txt\x3c/a>' does not exist."]);
 </script>
 <script type="text/javascript">
 window.output["stats"] = [[{"elapsed":"00:00:00","fail":0,"label":"Critical Tests","pass":5},{"elapsed":"00:00:00","fail":0,"label":"All Tests","pass":5}],[{"elapsed":"00:00:00","fail":0,"label":"database","pass":1},{"elapsed":"00:00:00","fail":0,"label":"example","pass":4},{"elapsed":"00:00:00","fail":0,"label":"quickstart","pass":5},{"elapsed":"00:00:00","fail":0,"label":"smoke","pass":4},{"elapsed":"00:00:00","fail":0,"label":"variables","pass":1}],[{"elapsed":"00:00:00","fail":0,"id":"s1","label":"QuickStart","name":"QuickStart","pass":5}]];
 </script>
 <script type="text/javascript">
-window.output["generatedMillis"] = -380;
+window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1414136820380;
+window.output["baseMillis"] = 1453891944782;
+</script>
+<script type="text/javascript">
+window.output["generatedMillis"] = 218;
+</script>
+<script type="text/javascript">
+window.output["generatedTimestamp"] = "20160127 12:52:25 GMT +03:00";
 </script>
 <script type="text/javascript">
 window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":"report.html","splitLogBase":"log","title":""};
@@ -1866,7 +1906,7 @@ function addTestExecutionLog(main) {
       ${date} ${time}
       {{/if}}
     </td>
-    <td class="${level.toLowerCase()} level">${level}</td>
+    <td class="${level.toLowerCase()} level"><span class="label ${level.toLowerCase()}">${level}</span></td>
     <td class="message">{{html text}}</td>
     <td class="select-message" onclick="javascript:selectMessage('${id}')" title="Select message text">
       <div></div>
@@ -1879,7 +1919,7 @@ function addTestExecutionLog(main) {
     <div class="element-header closed" onclick="toggleSuite('${id}')">
       <div class="element-header-left" title="{{html fullName}}">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="${status.toLowerCase()}">TEST SUITE: </span>
+        <span class="label ${status.toLowerCase()}">SUITE</span>
         <span class="name">{{html name}}</span>
       </div>
       <div class="element-header-right" onclick="stopPropagation(event)" title="">
@@ -1941,7 +1981,7 @@ function addTestExecutionLog(main) {
     <div class="element-header closed" onclick="toggleTest('${id}')">
       <div class="element-header-left" title="{{html fullName}}">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="${status.toLowerCase()}">TEST CASE: </span>
+        <span class="label ${status.toLowerCase()}">TEST</span>
         <span class="name">{{html name}}</span>
         {{if !isCritical}}(non-critical){{/if}}
       </div>
@@ -1982,7 +2022,7 @@ function addTestExecutionLog(main) {
         </tr>
         <tr>
           <th>Status:</th>
-          <td><span class="${status.toLowerCase()}">${status}</span> ({{if isCritical}}critical{{else}}non-critical{{/if}})</td>
+          <td><span class="label ${status.toLowerCase()}">${status}</span> ({{if isCritical}}critical{{else}}non-critical{{/if}})</td>
         </tr>
         {{if message()}}
         <tr>
@@ -2000,8 +2040,9 @@ function addTestExecutionLog(main) {
     <div class="element-header closed" onclick="toggleKeyword('${id}')">
       <div class="element-header-left" title="{{html name}}">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="${status.toLowerCase()}">${type}: </span>
-        <span class="name">{{html name}}</span>
+        <span class="label keyword ${status.toLowerCase()}">${type}</span>
+        <span>{{html assign}}</span>
+        <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
         <span class="arg">{{html arguments}}</span>
       </div>
       <div class="element-header-right" onclick="stopPropagation(event)">
@@ -2017,6 +2058,12 @@ function addTestExecutionLog(main) {
         <tr>
           <th>Documentation:</th>
           <td class="doc">{{html doc()}}</td>
+        </tr>
+        {{/if}}
+        {{if tags}}
+        <tr>
+          <th>Tags:</th>
+          <td>{{html tags}}</td>
         </tr>
         {{/if}}
         {{if timeout}}
@@ -2038,7 +2085,7 @@ function addTestExecutionLog(main) {
   <table id="${id}" class="messages ${level.toLowerCase()}-message">
     <tr class="message-row">
       <td class="time">${time}</td>
-      <td class="${level.toLowerCase()} level">${level}</td>
+      <td class="${level.toLowerCase()} level"><span class="label ${level.toLowerCase()}">${level}</span></td>
       <td class="message">{{html text}}</td>
       <td class="select-message" onclick="javascript:selectMessage('${id}')" title="Select message text">
         <div></div>
