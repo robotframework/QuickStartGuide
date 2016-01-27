@@ -4,7 +4,7 @@ Creating releases
 1. Re-generate results available online if tests have changed::
 
     rm -rf results log.html report.html output.xml
-    pybot --outputdir results QuickStart.rst
+    robot --outputdir results QuickStart.rst
     git checkout gh-pages
     mv -f results/*.* .
     rmdir results
