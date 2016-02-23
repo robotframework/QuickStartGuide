@@ -347,7 +347,7 @@ keyword table:
         Status should be    Logged In
 
     # Keywords below used by higher level tests. Notice how given/when/then/and
-    # prefixes can be dropped. And this is a commend.
+    # prefixes can be dropped. And this is a comment.
 
     A user has a valid account
         Create valid user    ${USERNAME}    ${PASSWORD}
