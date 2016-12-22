@@ -139,7 +139,7 @@ about Python 2 vs Python 3.
 __ http://docutils.sourceforge.net/rst.html
 __ https://pypi.python.org/pypi/docutils
 
-Download Demo Scripts
+Download demo scripts
 ---------------------
 
 Create a folder and download the repo holding the QuickStart script:
@@ -147,7 +147,11 @@ Create a folder and download the repo holding the QuickStart script:
    git clone https://github.com/robotframework/QuickStartGuide.git --depth=1
    cd QuickStartGuide
 
-Demo Script Execution
+   Alternately, download a ZIP file from the website:
+
+   https://github.com/robotframework/QuickStartGuide
+
+Demo script execution
 ---------------------
 
 After installations and with all other preconditions in place, you can run
