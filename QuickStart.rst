@@ -299,7 +299,7 @@ Selenium2Library_ for web testing, must be installed separately. If available
 test libraries are not enough, it is easy to `create custom test libraries`__.
 
 To be able to use keywords provided by a test library, the keywords must be
-imported using the `Library` keyword. Tests in this guide need keywords from
+imported using the `Library` setting. Tests in this guide need keywords from
 the standard `OperatingSystem` library (e.g. `Remove File`) and from a custom
 made `LoginLibrary` (e.g.  `Attempt to login with credentials`). Both of these
 libraries are imported in the settings table below:
