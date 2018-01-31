@@ -310,7 +310,7 @@ libraries are imported in the settings table below:
     Library           OperatingSystem
     Library           lib/LoginLibrary.py
 
-.. _Test libraries: http://robotframework.org/#test-libraries
+.. _Test libraries: http://robotframework.org/#libraries
 .. _Standard libraries: http://robotframework.org/robotframework/#standard-libraries
 .. _Selenium2Library: https://github.com/rtomac/robotframework-selenium2library/#readme
 __ `Creating test libraries`_
