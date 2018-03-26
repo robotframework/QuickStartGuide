@@ -3,7 +3,7 @@ Creating releases
 
 1. Check that master is up-to-date::
 
-    git st
+    git status
     git pull
     git push
 
