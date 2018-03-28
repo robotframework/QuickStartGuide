@@ -139,18 +139,26 @@ about Python 2 vs Python 3.
 __ http://docutils.sourceforge.net/rst.html
 __ https://pypi.python.org/pypi/docutils
 
-Execution
----------
+Download demo scripts
+---------------------
 
-After installations you still need to get the demo itself. It is easiest to
-download a certain release__ or grab the `latest content`__ and extract the
-package somewhere, but it is also possible to clone the `project repository`__.
+Create a folder and download the repo holding the QuickStart script:
+
+   git clone https://github.com/robotframework/QuickStartGuide.git --depth=1
+   cd QuickStartGuide
+
+   Alternately, download a ZIP file from the website:
+
+   https://github.com/robotframework/QuickStartGuide
+
+Demo script execution
+---------------------
 
 After installations and with all other preconditions in place, you can run
 the demo on the command line by using the `robot` command::
 
     robot QuickStart.rst
-    
+
 If you use Robot Framework 2.9 or older, instead of the `robot` command you
 need to use `pybot`::
 
