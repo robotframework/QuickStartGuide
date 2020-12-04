@@ -21,10 +21,10 @@ __ http://creativecommons.org/licenses/by/3.0/
 *Руководство по быстрому началу работы с Robot Framework* представляет
 наиболее важные возможности `Robot Framework <http://robotframework.org>`_.
 Вы можете просто просмотреть его и представленные в нем примеры, но его
-можно использовать и как `исполняемое демо`__. Все описанные здесь возможности
+можно использовать и как `исполняемый пример`__. Все описанные здесь возможности
 фреймворка более подробно разобраны в `Руководстве пользователся Robot Framework`_.
 
-__ `Executing this guide`_
+__ `Выполнение руководства`_
 .. _Руководстве пользователся Robot Framework: http://robotframework.org/robotframework/#user-guide
 
 Обзор Robot Framework
@@ -49,25 +49,24 @@ Robot Framework не привязан к операционным система
 http://robotframework.org. Там вы найдете еще больше документации, демонстрационных
 проектов, списки тестовых библиотек, сопутствующих инструментов и тому подобное.
 
-Demo application
-----------------
+Демонстрационное приложение
+---------------------------
 
-The sample application for this guide is a variation on a classic login
-example: it is a command-line based authentication server written in Python.
-The application allows a user to do three things:
+Образец приложения для этого руководстав это один из вариантов классического входа
+в систему: это сервер аутентификации с интерфейсом командной строки, написанный на
+Python . Это приложение позволяет пользователю делать три вещи:
+- Завести учетную запись с подходящим паролем.
+- Осуществить вход с верным паролем и именем пользователя.
+- Сменить пароль у существующей учетной записи пользователя.
 
-- Create an account with a valid password.
-- Log in with a valid user name and password.
-- Change the password of an existing account.
-
-The application itself is in `<sut/login.py>`_ file and can be executed with
-a command `python sut/login.py`. Attempting to log in with a non-existent
-user account or with an invalid password results in the same error message::
+Само приложение находится в файле `<sut/login.py>`_ и может быть запущено командой
+`python sut/login.py`. Попытка входа с помощью несуществующей учетной записи или
+неверного пароля приведет к следующему сообщению об ошибке::
 
     > python sut/login.py login nobody P4ssw0rd
     Access Denied
 
-After creating a user account with valid password login succeeds::
+А после создания учетной записи вход с верным поролем будет успешным::
 
     > python sut/login.py create fred P4ssw0rd
     SUCCESS
@@ -103,8 +102,8 @@ verified and if not valid, an error message is given::
 The application uses a simple database file to keep track on user statuses.
 The file is located in operating system dependent temporary directory.
 
-Executing this guide
-====================
+Выполнение руководства
+======================
 
 These instructions explain how to run this guide yourself. If you are not
 interested in that, you can nevertheless `view the results`__ online.
