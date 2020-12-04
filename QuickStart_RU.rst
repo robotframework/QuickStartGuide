@@ -24,7 +24,7 @@ __ http://creativecommons.org/licenses/by/3.0/
 можно использовать и как `исполняемый пример`__. Все описанные здесь возможности
 фреймворка более подробно разобраны в `Руководстве пользователся Robot Framework`_.
 
-__ `Выполнение руководства`_
+__ `Запуск руководства`_
 .. _Руководстве пользователся Robot Framework: http://robotframework.org/robotframework/#user-guide
 
 Обзор Robot Framework
@@ -52,9 +52,9 @@ http://robotframework.org. Там вы найдете еще больше док
 Демонстрационное приложение
 ---------------------------
 
-Образец приложения для этого руководстав это один из вариантов классического входа
+Образец приложения в этом руководства — один из вариантов классического входа
 в систему: это сервер аутентификации с интерфейсом командной строки, написанный на
-Python . Это приложение позволяет пользователю делать три вещи:
+Python. Это приложение позволяет пользователю делать три вещи:
 - Завести учетную запись с подходящим паролем.
 - Осуществить вход с верным паролем и именем пользователя.
 - Сменить пароль у существующей учетной записи пользователя.
@@ -74,10 +74,10 @@ Python . Это приложение позволяет пользователю
     > python sut/login.py login fred P4ssw0rd
     Logged In
 
-There are two requirements that a password must fulfill to be valid: it must
-be between 7-12 characters long, and it must contain lower and upper case
-letters and numbers, but it must not contain special characters. Trying to
-create a user with invalid password fails::
+Имеются два ограничения, которым отвечает валидный пароль: он должен быть
+длинной от 7 до 12 знаков и содержать буквы в верхнем и нижнем регистре,
+а также цифры, но не должен сожержать специальных символов. Попытка создать
+пользователя с невалидным паролем приведет к сообщению об ошибке::
 
     > python sut/login.py create fred short
     Creating user failed: Password must be 7-12 characters long
@@ -86,9 +86,11 @@ create a user with invalid password fails::
     Creating user failed: Password must be a combination of lowercase and
     uppercase letters and numbers
 
-Changing password with invalid credentials results in the same error message
-as logging in with invalid credentials. The validity of new password is
-verified and if not valid, an error message is given::
+
+Изменение пароль с неверными учетными данными приведет к такому же сообщению
+об ошибке, как и попытка войти с неверным паролем или именем пользователя.
+Валидность обновленного пароля также проверяется, и если он не валиден, то будет
+выведено соответствующее сообщение об ошибке::
 
     > python sut/login.py change-password fred wrong NewP4ss
     Changing password failed: Access Denied
@@ -99,11 +101,13 @@ verified and if not valid, an error message is given::
     > python sut/login.py change-password fred P4ssw0rd NewP4ss
     SUCCESS
 
-The application uses a simple database file to keep track on user statuses.
-The file is located in operating system dependent temporary directory.
+Приложение использует простую базу данных в файле для сохранения статуса пользователя.
+База помещается в каталог для временных файлов, местополежние его зависит от используемой
+операционной системы.
 
-Выполнение руководства
-======================
+
+Запуск руководства
+==================
 
 These instructions explain how to run this guide yourself. If you are not
 interested in that, you can nevertheless `view the results`__ online.
