@@ -22,10 +22,10 @@ __ http://creativecommons.org/licenses/by/3.0/
 наиболее важные возможности `Robot Framework <http://robotframework.org>`_.
 Вы можете просто просмотреть его и представленные в нем примеры, но его
 можно использовать и как `исполняемый пример`__. Все описанные здесь возможности
-фреймворка более подробно разобраны в `Руководстве пользователся Robot Framework`_.
+фреймворка более подробно разобраны в `Robot Framework User Guide`_.
 
-__ `Запуск руководства`_
-.. _Руководстве пользователся Robot Framework: http://robotframework.org/robotframework/#user-guide
+__ `Запуск руководства как набора тестов`_
+.. _Robot Framework User Guide: http://robotframework.org/robotframework/#user-guide
 
 Обзор Robot Framework
 ---------------------
@@ -107,8 +107,8 @@ Python. Это приложение позволяет пользователю 
 операционной системы.
 
 
-Запуск руководства
-==================
+Запуск руководства как набора тестов
+====================================
 
 Эта инструкция описывает как самостоятельно запустить это руководство (как набор тестов).
 Если это вам не интересно, вы можете посмотреть готовый `результат выполнения`__ на сайте.
@@ -146,7 +146,7 @@ __ https://pypi.python.org/pypi/docutils
 Выполнение
 ----------
 
-После установки модулей вам потребуется само демо. Самыq простой способ — это
+После установки модулей вам потребуется само демо. Самый простой способ — это
 загрузить нужный релиз__ или `архив с последней версией`__ и распаковать
 где-либо, а также можно клонировать `репозиторий проекта`__.
 
@@ -156,7 +156,7 @@ __ https://pypi.python.org/pypi/docutils
     robot QuickStart.rst
     
 Если вы используете Robot Framework 2.9 или более старый, вместо команды `robot`
-вам нужно будет использовать `pybot`::
+нужно будет использовать `pybot`::
 
     pybot QuickStart.rst
 
@@ -173,28 +173,28 @@ __ https://github.com/robotframework/QuickStartGuide
 Просмотр результатов
 --------------------
 
-Запуск демонстрационных тестов приводит к возданию трех файлов. Здесь ссылки ведут
-на уже готовые отчеты на сайте, но запуск демо-тестов приведет к созданию аналогичных
-файлов локально.
+Запуск демонстрационных тестов приведет к созданию трех файлов с отчетами.
+Здесь ссылки ведут на уже готовые отчеты на сайте, а запуск демо-тестов
+приведет к созданию аналогичных файлов локально.
 
 `report.html <http://robotframework.org/QuickStartGuide/report.html>`__
-    Higher level test report.
+    Обобщенный отчет о выполненных тестах.
 `log.html <http://robotframework.org/QuickStartGuide/log.html>`__
-    Detailed test execution log.
+    Детализированный журнал выполнения тестов.
 `output.xml <http://robotframework.org/QuickStartGuide/output.xml>`__
-    Results in machine readable XML format.
+    Результаты тестов в машиночитаемом формате XML.
 
-Test cases
-==========
+Тестовые сценарии
+=================
 
-Workflow tests
+Workflow тесты
 --------------
 
-Robot Framework test cases are created using a simple tabular syntax. For
-example, the following table has two tests:
+Тестовые сценарии Robot Framework используют простой синтаксис на основе табуляции.
+Например, этот сценарий содержит два теста:
 
-- User can create an account and log in
-- User cannot log in with bad password
+- Пользователь может создать учетную запись и войти в систему
+- Пользователь не может войти с неверным паролем
 
 .. code:: robotframework
 
@@ -209,21 +209,21 @@ example, the following table has two tests:
         Attempt to Login with Credentials    betty    wrong
         Status Should Be    Access Denied
 
-Notice that these tests read like manual tests written in English rather
-than like automated test cases. Robot Framework uses the keyword-driven
-approach that supports writing tests that capture the essence of the actions
-and expectations in natural language.
+Обратите внимание, что эти тесты читаются как мануальные тесты записанные на
+английском. Robot Framework использует подход на основе ключевых слов, который
+поддерживает написание тестов, захватывающих саму суть действий и ожиданий, на
+естественном языке.
 
-Test cases are constructed from keywords and their possible arguments. The
-syntax requires that keywords and arguments, as well as settings and their
-values, are separated by at least two spaces or by a tab character. It is
-generally recommended to use four spaces to make the separator more explicit,
-and in some cases aligning arguments or other values may make the data easier
-to understand. For more details about the syntax see `Robot Framework User
-Guide`_.
+Тестовые сценарии выстраиваются из ключевых слов и их аргументов. Синтаксис
+требует, чтобы ключевые слова и аргументы, также как настройки и их значения,
+отделялись двумя пробелами или символом табуляции. В общем случае, рекомендуется
+использовать использовать четыре пробела, чтобы сделать разделитель более заметным,
+а в некоторых случаях это позволяет выравнивать аргументы или другие значения, что
+делает их более легкими для восприятия. За более детальным описанием синтаксиса
+обращайтесь к  `Robot Framework User Guide`_.
 
-Higher-level tests
-------------------
+Тесты верхнего уровня
+---------------------
 
 Test cases can also be created using only high-level keywords that take no
 positional arguments. This style allows using totally free text which is
@@ -442,8 +442,8 @@ Test suites
 -----------
 
 Collections of test cases are called test suites in Robot Framework. Every
-input file which contains test cases forms a test suite. When `executing this
-guide`_, you see test suite `QuickStart` in the console output. This name is
+input file which contains test cases forms a test suite. Когда мы `запускаем это руководство`__
+, you see test suite `QuickStart` in the console output. This name is
 derived from the file name and it is also visible in reports and logs.
 
 It is possible to organize test cases hierarchically by placing test case
@@ -451,6 +451,8 @@ files into directories and these directories into other directories. All
 these directories automatically create higher level test suites that get their
 names from directory names. Since test suites are just files and directories,
 they are trivially placed into any version control system.
+
+__ `Запуск руководства как набора тестов`_
 
 Setups and teardowns
 --------------------
