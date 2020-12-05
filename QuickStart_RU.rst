@@ -52,7 +52,7 @@ http://robotframework.org. Там вы найдете еще больше док
 Демонстрационное приложение
 ---------------------------
 
-Образец приложения в этом руководства — один из вариантов классического входа
+Образец приложения в этом руководстве — один из вариантов классического входа
 в систему: это сервер аутентификации с интерфейсом командной строки, написанный на
 Python. Это приложение позволяет пользователю делать три вещи:
 - Завести учетную запись с подходящим паролем.
@@ -87,10 +87,10 @@ Python. Это приложение позволяет пользователю 
     uppercase letters and numbers
 
 
-Изменение пароль с неверными учетными данными приведет к такому же сообщению
+Изменение пароля с неверными учетными данными приведет к такому же сообщению
 об ошибке, как и попытка войти с неверным паролем или именем пользователя.
-Валидность обновленного пароля также проверяется, и если он не валиден, то будет
-выведено соответствующее сообщение об ошибке::
+Валидность обновленного пароля также проверяется, и если он не соответствует,
+ограничениям, то будет выведено сообщение об ошибке::
 
     > python sut/login.py change-password fred wrong NewP4ss
     Changing password failed: Access Denied
@@ -109,32 +109,32 @@ Python. Это приложение позволяет пользователю 
 Запуск руководства
 ==================
 
-These instructions explain how to run this guide yourself. If you are not
-interested in that, you can nevertheless `view the results`__ online.
+Эта инструкция описывает как самостоятельно запустить это руководство (как набор тестов).
+Если это вам не интересно, вы можете посмотреть готовый `результат выполнения`__ на сайте.
 
-__ `Viewing results`_
+__ `Просмотр результатов`_
 
-Installations
--------------
+Установка
+---------
 
-The recommended approach to install Robot Framework on Python_ is using `pip
-<http://pip-installer.org>`_. Once you have both of these preconditions
-installed, you can simply run::
+Рекомендуемый способ установки Robot Framework на Python_ это использование пакетного
+менеджера `pip <http://pip-installer.org>`_. Если, и Python, и pip у вас уже установлены,
+вам достаточно выполнить команду::
 
     pip install robotframework
 
-See `Robot Framework installation instructions`_ for alternative installation
-approaches and more information about installation in general.
+См. `Robot Framework installation instructions`_ для знакомства с альтернативными методами,
+и в целом за дополнительной сведениями об установке.
 
-This demo is written using reStructuredText__ markup language with Robot
-Framework test data in code blocks. Executing tests in this format requires
-installing additional docutils__ module::
+Это демонстрационное руководство использует язык разметки reStructuredText__ с тестовыми
+данными Robot Framework внутри блоков для кода. Выполнение тестов в этом формате потребует
+установки дополнительного модуля docutils__::
 
     pip install docutils
 
-Notice that Robot Framework 3.0 is the first Robot Framework version to support
-Python 3. See the aforementioned `installation instructions`_ for information
-about Python 2 vs Python 3.
+Обратите внимание на то, что Robot Framework 3.0 это первая версия Robot Framework, которая
+поддерживает Python 3. Обращайтесь к уже упомянутой `installation instructions`_ за информацией
+о разнице между Python 2 и Python 3.
 
 .. _`Robot Framework installation instructions`:
    https://github.com/robotframework/robotframework/blob/master/INSTALL.rst
@@ -142,12 +142,12 @@ about Python 2 vs Python 3.
 __ http://docutils.sourceforge.net/rst.html
 __ https://pypi.python.org/pypi/docutils
 
-Execution
----------
+Выполнение
+----------
 
-After installations you still need to get the demo itself. It is easiest to
-download a certain release__ or grab the `latest content`__ and extract the
-package somewhere, but it is also possible to clone the `project repository`__.
+После установки модулей вам потребуется само демо. Самы простой способ это
+загрузить нужный релиз__ или `архив с последней версией`__ и распаковать
+где-либо, а также можно клонировать `репозиторий проекта`__.
 
 After installations and with all other preconditions in place, you can run
 the demo on the command line by using the `robot` command::
@@ -169,8 +169,8 @@ __ https://github.com/robotframework/QuickStartGuide/releases
 __ https://github.com/robotframework/QuickStartGuide/archive/master.zip
 __ https://github.com/robotframework/QuickStartGuide
 
-Viewing results
----------------
+Просмотр результатов
+--------------------
 
 Running the demo generates the following three result files. These files are
 linked to pre-executed files available online, but executing the demo creates
