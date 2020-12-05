@@ -75,9 +75,9 @@ Python. Это приложение позволяет пользователю 
     > python sut/login.py login fred P4ssw0rd
     Logged In
 
-Имеются два ограничения, которым отвечает валидный пароль: он должен быть
+Имеются следующие ограничения, которым отвечает валидный пароль: он должен быть
 длинной от 7 до 12 знаков и содержать буквы в верхнем и нижнем регистре,
-а также цифры, но не должен сожержать специальных символов. Попытка создать
+а также цифры, но не должен содержать специальных символов. Попытка создать
 пользователя с невалидным паролем приведет к сообщению об ошибке::
 
     > python sut/login.py create fred short
@@ -90,7 +90,7 @@ Python. Это приложение позволяет пользователю 
 
 Изменение пароля с неверными учетными данными приведет к такому же сообщению
 об ошибке, как и попытка войти с неверным паролем или именем пользователя.
-Валидность обновленного пароля также проверяется, и если он не соответствует,
+Валидность обновленного пароля также проверяется, и, если он не соответствует
 ограничениям, то будет выведено сообщение об ошибке::
 
     > python sut/login.py change-password fred wrong NewP4ss
@@ -146,25 +146,25 @@ __ https://pypi.python.org/pypi/docutils
 Выполнение
 ----------
 
-После установки модулей вам потребуется само демо. Самы простой способ — это
+После установки модулей вам потребуется само демо. Самыq простой способ — это
 загрузить нужный релиз__ или `архив с последней версией`__ и распаковать
 где-либо, а также можно клонировать `репозиторий проекта`__.
 
-After installations and with all other preconditions in place, you can run
-the demo on the command line by using the `robot` command::
+После того как вы установите все нужные компоненты, вы сможете запустить
+демонстрацию использую команду `robot`::
 
     robot QuickStart.rst
     
-If you use Robot Framework 2.9 or older, instead of the `robot` command you
-need to use `pybot`::
+Если вы используете Robot Framework 2.9 или более старый, вместо команды `robot`
+вам нужно будет использовать `pybot`::
 
     pybot QuickStart.rst
 
-You can also configure the execution with various command line options::
+Вы также можете настроить исполнение используя различные опции командной строки::
 
     robot --log custom_log.html --name Custom_Name QuickStart.rst
 
-For a list of available options run `robot --help`.
+Для получения списка доступных опций выполните команду `robot --help`.
 
 __ https://github.com/robotframework/QuickStartGuide/releases
 __ https://github.com/robotframework/QuickStartGuide/archive/master.zip
@@ -173,9 +173,9 @@ __ https://github.com/robotframework/QuickStartGuide
 Просмотр результатов
 --------------------
 
-Running the demo generates the following three result files. These files are
-linked to pre-executed files available online, but executing the demo creates
-them locally.
+Запуск демонстрационных тестов приводит к возданию трех файлов. Здесь ссылки ведут
+на уже готовые отчеты на сайте, но запуск демо-тестов приведет к созданию аналогичных
+файлов локально.
 
 `report.html <http://robotframework.org/QuickStartGuide/report.html>`__
     Higher level test report.
