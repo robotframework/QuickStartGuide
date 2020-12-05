@@ -210,7 +210,7 @@ Workflow тесты
         Status Should Be    Access Denied
 
 Обратите внимание, что эти тесты читаются как мануальные тесты записанные на
-английском. Robot Framework использует подход на основе ключевых слов, который
+английском языке. Robot Framework использует подход на основе ключевых слов, который
 поддерживает написание тестов, захватывающих саму суть действий и ожиданий, на
 естественном языке.
 
@@ -225,16 +225,16 @@ Workflow тесты
 Тесты верхнего уровня
 ---------------------
 
-Test cases can also be created using only high-level keywords that take no
-positional arguments. This style allows using totally free text which is
-suitable for communication even with non-technical customers or other project
-stakeholders. This is especially important when using the `acceptance
-test-driven development`__ (ATDD) approach or any of its variants and created
-tests act also as requirements.
+Тестовые сценарии могут быть созданы с использованием ключевых слов верхнего
+уровня, которые не используют позиционных аргументов. Такой стиль не ограничивает
+свободу в описании, что хорошо подходит для коммуникации даже с технически
+неосведомленными пользователями или другими стейкхолдерами. Это может быть
+особенно важно при использовании подхода `acceptance test-driven development`__
+(ATDD) или его вариантов, когда тесты используются и как требования к создаваемому ПО.
 
-Robot Framework does not enforce any particular style for writing test cases.
-One common style is the *given-when-then* format popularized by
-`behavior-driven development`__ (BDD):
+Robot Framework не принуждает к использованию какого-либо определенного подхода
+к написанию сценариев. Один из распространенных стилей это формат *given-when-then*
+ставший популярным благодаря `behavior-driven development`__ (BDD):
 
 .. code:: robotframework
 
@@ -248,7 +248,7 @@ One common style is the *given-when-then* format popularized by
 __ http://en.wikipedia.org/wiki/Acceptance_test-driven_development
 __ http://en.wikipedia.org/wiki/Behavior_driven_development
 
-Data-driven tests
+Data-driven тесты
 -----------------
 
 Quite often several test cases are otherwise similar but they have slightly
