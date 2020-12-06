@@ -233,7 +233,7 @@ Workflow тесты
 (ATDD) или его вариантов, когда тесты используются и как требования к создаваемому ПО.
 
 Robot Framework не принуждает к использованию какого-либо определенного подхода
-к написанию сценариев. Один из распространенных стилей это формат *given-when-then*
+к написанию сценариев. Один из распространенных стилей это формат *given-when-then*,
 ставший популярным благодаря `behavior-driven development`__ (BDD):
 
 .. code:: robotframework
@@ -248,15 +248,15 @@ Robot Framework не принуждает к использованию како
 __ http://en.wikipedia.org/wiki/Acceptance_test-driven_development
 __ http://en.wikipedia.org/wiki/Behavior_driven_development
 
-Data-driven тесты
------------------
+Тестирование на основе данных
+-----------------------------
 
-Quite often several test cases are otherwise similar but they have slightly
-different input or output data. In these situations *data-driven tests*
-allows varying the test data without duplicating the workflow. With Robot
-Framework the `[Template]` setting turns a test case into a data-driven test
-where the template keyword is executed using the data defined in the test case
-body:
+Часто несколько тестовых сценариев бывают похожи друг на друга, за исключением разницы
+во входящих или исходящих данных. В таких случаях *data-driven тесты* позволяют
+варьировать тестовые данные без дублирования выполняемых действий. С помошью настройки
+`[Template]` Robot Framework превращает тестовые сценарии в тесты управляемые данными.
+Ключевое слов, используемое как шаблон, выполняется с использованием данных, определенных
+в теле тестового сценария:
 
 .. code:: robotframework
 
@@ -270,27 +270,26 @@ body:
         AbCdEfGh         ${PWD INVALID CONTENT}
         abCD56+          ${PWD INVALID CONTENT}
 
-In addition to using the `[Template]` setting with individual tests, it would
-be possible to use the `Test Template` setting once in the settings table like
-`setups and teardowns`_ defined later in this guide. In our case that
-would ease creating separate named tests for invalid length password cases and
-for other invalid cases. However, that would require moving those tests to a
-separate file, because otherwise the template would also be applied to other
-tests in this file.
+В дополнение к настройке `[Template]` для отдельных тестов, возможно также использовать
+общую настройку `Test Template`, указав ее однажды указанная в таблице настроек такой как
+`setups and teardowns`_ (рассматривается ниже). В нашем случае проще было создать
+отдельные тесты для невалидной длины пароля и для сценариев с другими невалидными
+данными. Тем не менее, это потребовало вынести эти тесты в отдельный файл, иначе этот
+шаблон был бы применен и другим тестам в этом файле.
 
-Notice also that the error messages in the above example are specified using
-variables_.
+Обратите также внимание, что сообщения об ошибках в этом примере задаются с использованием
+файла variables_.
 
-Keywords
-========
+Ключевые слова
+==============
 
-Test cases are created from keywords that can come from two sources. `Library
-keywords`_ come from imported test libraries, and so called `user keywords`_
-can be created using the same tabular syntax that is used for creating test
-cases.
+Тестовые сценарии созадются из ключевых слов, которые аогут имет два источника.
+`Библиотечные ключевые слова`_ могут импортироватся из библиотек, а так называемые
+`пользовательские ключевые слова`_ могут быть созданы с использованием того же
+синтаксиса, что используется при написании тестовых сценариев.
 
-Library keywords
-----------------
+Библиотечные ключевые слова
+---------------------------
 
 All lowest level keywords are defined in test libraries which are implemented
 using standard programming languages, typically Python or Java. Robot Framework
@@ -319,8 +318,8 @@ libraries are imported in the settings table below:
 .. _Selenium2Library: https://github.com/rtomac/robotframework-selenium2library/#readme
 __ `Creating test libraries`_
 
-User keywords
--------------
+Пользовательские ключевые слова
+-------------------------------
 
 One of the most powerful features of Robot Framework is the ability to easily
 create new, higher-level keywords from other keywords. The syntax for creating
@@ -464,10 +463,12 @@ specify keywords to be executed before and/or after an entire test suite.
 
 Individual tests can also have a custom setup or teardown by using `[Setup]`
 and `[Teardown]` in the test case table. This works the same way as
-`[Template]` was used earlier with `data-driven tests`_.
+`[Template]` was used earlier with `data-driven тестами`__.
 
 In this demo we want to make sure the database is cleared before execution
 starts and that every test also clears it afterwards:
+
+__ `Тестирование на основе данных`_
 
 .. code:: robotframework
 
