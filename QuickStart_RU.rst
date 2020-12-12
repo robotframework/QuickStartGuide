@@ -280,6 +280,7 @@ __ http://en.wikipedia.org/wiki/Behavior_driven_development
 Обратите также внимание, что сообщения об ошибках в этом примере задаются с использованием
 переменных_.
 
+.. _`setups and teardowns`: `Процедуры подготовки и завершения тестов`_
 .. _`переменных`: `Переменные`_
 
 Ключевые слова
@@ -318,7 +319,7 @@ libraries are imported in the settings table below:
 .. _Test libraries: http://robotframework.org/#libraries
 .. _Standard libraries: http://robotframework.org/robotframework/#standard-libraries
 .. _Selenium2Library: https://github.com/rtomac/robotframework-selenium2library/#readme
-__ `Creating test libraries`_
+__ `Создание тестовых библиотек`_
 
 Пользовательские ключевые слова
 -------------------------------
@@ -440,39 +441,40 @@ Contain` задает значение для переменной `${database}`
         ${database} =     Get File    ${DATABASE FILE}
         Should Contain    ${database}    ${username}\t${password}\t${status}\n
 
-Organizing test cases
-=====================
+Организация тестовых сценариев
+==============================
 
-Test suites
------------
+Тестовые наборы
+---------------
 
-Collections of test cases are called test suites in Robot Framework. Every
-input file which contains test cases forms a test suite. Когда мы `запускаем это руководство`__
-, you see test suite `QuickStart` in the console output. This name is
-derived from the file name and it is also visible in reports and logs.
+Собрание из нескольких тестовых сценариев называет в Robot Framework тестовым набором.
+Каждый входной файл содержащий тестовые сценарии формирует тестовый набор. Когда вы
+`запускаем это руководство`__ вы видете тестовый набор `QuickStart` в выводе консоли.
+Это имя определятся названием файла и также будет видно в отчетах и журналах исполнения.
 
-It is possible to organize test cases hierarchically by placing test case
-files into directories and these directories into other directories. All
-these directories automatically create higher level test suites that get their
-names from directory names. Since test suites are just files and directories,
-they are trivially placed into any version control system.
+Вы можете создать иерархическую структуру из тестовых сценариев, размещая файлы по
+каталогам, а эти каталоги внутри других каталогов файловой системы. Все эти каталоги
+автоматически создадут тестовый набор верхнего уровня, который будет брать их названия
+из названий каталогов. Поскольку тестовые наборы это просто файлы и каталоги, они легко
+могут быть помещены и в системы контроля версий.
 
 __ `Запуск руководства как набора тестов`_
 
-Setups and teardowns
---------------------
+Процедуры подготовки и завершения тестов
+----------------------------------------
 
-If you want certain keywords to be executed before or after each test,
-use the `Test Setup` and `Test Teardown` settings in the settings table.
-Similarly you can use the `Suite Setup` and `Suite Teardown` settings to
-specify keywords to be executed before and/or after an entire test suite.
+Если вы хотите запустить некоторые ключевый слова перед или после каждого теста,
+используйте для этого настройки `Test Setup` и `Test Teardown` в таблице настроек.
+Аналогично, вы может использовать настроки `Suite Setup` и `Suite Teardown` для запуска
+нужных ключевых слов перед и/или после выполнения всего тестового набора.
 
-Individual tests can also have a custom setup or teardown by using `[Setup]`
-and `[Teardown]` in the test case table. This works the same way as
-`[Template]` was used earlier with `data-driven тестами`__.
+Отдельные тесты также могут иметь собственные процедуры подготовки и завершения,
+посредством настроек `[Setup]` и `[Teardown]` в таблмце натроек тестового сценария.
+Это работает аналогично настройке `[Template]` которую мы рассматривали вместе в
+`data-driven тестами`__.
 
-In this demo we want to make sure the database is cleared before execution
-starts and that every test also clears it afterwards:
+В этом демо-примере мы хотим быть уверены, что база данных будет очищена перед началом
+запуска и что каждый тест будет ее очищать после себя:
 
 __ `Тестирование на основе данных`_
 
@@ -482,14 +484,14 @@ __ `Тестирование на основе данных`_
     Suite Setup       Clear Login Database
     Test Teardown     Clear Login Database
 
-Using tags
-----------
+Использование меток
+-------------------
 
-Robot Framework allows setting tags for test cases to give them free metadata.
-Tags can be set for all test cases in a file with `Force Tags` and `Default
-Tags` settings like in the table below. It is also possible to define tags
-for a single test case using `[Tags]` settings like in earlier__ `User
-status is stored in database` test.
+Robot Framework позволяет устанавливать метки для тестовых сценариев. Это позволяет
+определять метаданные для сценариев. Метки могуть быть установлены для всех сценариев
+в файле, используя настройки `Force Tags` и `Default Tags`, как в таблице ниже. Можно
+также задавать метки для отдельных тестов использую натройку `[Tags]` как это показано
+ранее__ на примере теста `User status is stored in database`
 
 __ `Использование переменных`_
 
@@ -499,28 +501,25 @@ __ `Использование переменных`_
     Force Tags        quickstart
     Default Tags      example    smoke
 
-When you look at a report after test execution, you can see that tests have
-specified tags associated with them and there are also statistics generated
-based on tags. Tags can also be used for many other purposes, one of the most
-important being the possibility to select what tests to execute. You can try,
-for example, the following commands::
+Когда вы обратитесь к отчету после выполения тестов, вы увидете, что тесты получил
+заданные метки и в отчете появилась статистика, связанная с метками. Метки также могут
+использоваться и во многих других случаях, один из важнейших — это выборочный запуск
+тестов. Для примера вы можете воспользоваться следующими командами::
 
     robot --include smoke QuickStart.rst
     robot --exclude database QuickStart.rst
 
-Creating test libraries
-=======================
+Создание тестовых библиотек
+===========================
 
-Robot Framework offers a simple API for creating test libraries using either
-Python or Java, and the remote library interface also allows using other
-programming languages. `Robot Framework User Guide`_ contains a detailed
-description about the library API.
+Robot Framework предлагает несложный API для создания тестовых библиотек на Python
+или Java, и интерфейс удаленных библиотек также позволяющий писать на других языках
+программирования. `Robot Framework User Guide`_ содержит детальное описание API библиотек.
 
-As an example, we can take a look at the `LoginLibrary` test library used in
-this demo. The library is located at `<lib/LoginLibrary.py>`_, and its source
-code is also copied below. Looking at the code you can see, for example, how
-the keyword `Create User` is mapped to actual implementation of the method
-`create_user`.
+Как пример, мы можем рассмотреть тестовую бибилотеку `LoginLibrary` из демонстрационного
+примера. Библиотека находится каталоге `<lib/LoginLibrary.py>`_, и ее исходный код
+продублирован ниже. Посмотрите в код и вы сможете увидеть, например, как ключевое слово
+`Create User` соотноситься с реализацией метода `create_user`.
 
 .. code:: python
 
