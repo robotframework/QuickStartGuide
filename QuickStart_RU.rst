@@ -368,7 +368,7 @@ __ `Creating test libraries`_
         Attempt to login with credentials    ${USERNAME}    ${PASSWORD}
         Status should be    Access Denied
 
-Пользовательские ключевые слова могут включать действия задаваемые другими
+Пользовательские ключевые слова могут включать действия, задаваемые другими
 пользовательскими или библиотечными ключевыми словами. Как видно из этого
 примера, пользовательские ключевые слова могут принимать параметры. Они также
 могут возвращать значения и даже включать в себя циклы FOR. Но этом этапе
@@ -385,9 +385,10 @@ __ `Creating test libraries`_
 Определение переменных
 ----------------------
 
-Variables are an integral part of the Robot Framework. Usually any data used in
-tests that is subject to change is best defined as variables. Syntax for
-variable definition is quite simple, as seen in this variable table:
+Перменные это неотьемлимая часть Robot Framework. Обычно, любые данные,
+используемые в тестах, и подверженные изменениям, будет лучше определить через
+переменные. Синтаксис определения пременных прост, как это видно в этой таблице
+с переменными:
 
 .. code:: robotframework
 
@@ -399,29 +400,29 @@ variable definition is quite simple, as seen in this variable table:
     ${PWD INVALID LENGTH}     Password must be 7-12 characters long
     ${PWD INVALID CONTENT}    Password must be a combination of lowercase and uppercase letters and numbers
 
-Variables can also be given from the command line which is useful if
-the tests need to be executed in different environments. For example
-this demo can be executed like::
+Перменные также могут задваться из командной строки, что может быть полезно
+при запуске теста в разном окружении. Например этот демо-пример может быть запущен
+таким способом::
 
    robot --variable USERNAME:johndoe --variable PASSWORD:J0hnD0e QuickStart.rst
 
-In addition to user defined variables, there are some built-in variables that
-are always available. These variables include `${TEMPDIR}` and `${/}` which
-are used in the above example.
+В дополнение к переменным, определяемым пользователем, всегда доступные и некоторые
+встроенные пременные. Эти переменные включают `${TEMPDIR}` и `${/}` как это показано
+в примере выше.
 
-Using variables
----------------
+Использование переменных
+------------------------
 
-Variables can be used in most places in the test data. They are most commonly
-used as arguments to keywords like the following test case demonstrates.
-Return values from keywords can also be assigned to variables and used later.
-For example, the following `Database Should Contain` `user keyword`_ sets
-database content to `${database}` variable and then verifies the content
-using BuiltIn_ keyword `Should Contain`. Both library and user keywords can
-return values.
+В большинстве случаев, тестовые данные могут использовать переменные. Обычно они
+используются в качестве аргументов ключевых слов, как это показано в примере ниже.
+Значения, отдаваемые ключевыми словами, также могут присваиваться переменным
+и использоваться далее. Напрмер, `пользовательское ключевое слово`_ `Database Should
+Contain` задает значение для переменной `${database}` и затем верифицирует содержимое
+используя `встроенное ключевое слово`_ `Should Contain`. Оба, — и библиотечное,
+и пользовательское — ключевых слова могут возвращать значения.
 
-.. _User keyword: `Пользовательские ключевые слова`_
-.. _BuiltIn: `Standard libraries`_
+.. _пользовательское ключевое слово: `Пользовательские ключевые слова`_
+.. _встроенное ключевое слово: `Standard libraries`_
 
 .. code:: robotframework
 
@@ -490,7 +491,7 @@ Tags` settings like in the table below. It is also possible to define tags
 for a single test case using `[Tags]` settings like in earlier__ `User
 status is stored in database` test.
 
-__ `Using variables`_
+__ `Использование переменных`_
 
 .. code:: robotframework
 
