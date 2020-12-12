@@ -278,7 +278,9 @@ __ http://en.wikipedia.org/wiki/Behavior_driven_development
 шаблон был бы применен и другим тестам в этом файле.
 
 Обратите также внимание, что сообщения об ошибках в этом примере задаются с использованием
-файла variables_.
+переменных_.
+
+.. _`переменных`: `Переменные`_
 
 Ключевые слова
 ==============
@@ -321,12 +323,12 @@ __ `Creating test libraries`_
 Пользовательские ключевые слова
 -------------------------------
 
-One of the most powerful features of Robot Framework is the ability to easily
-create new, higher-level keywords from other keywords. The syntax for creating
-these so called *user-defined keywords*, or *user keywords* for short, is
-similar to the syntax that is used for creating test cases. All the
-higher-level keywords needed in previous test cases are created in this
-keyword table:
+Одна из наиболее сильных возможностей Robot Framework это способность легко
+создавать новые ключевые слова верхнего уровня из других ключевых слов. Синтаксис
+для создания *определяемых пользователем ключевых слов* или для краткости
+*пользовательских ключевых слов* похож на ни синтаксис используемый для
+создания тестов. Все ключевые слова верхнего уровня, необходимые для предыдущего
+теста, задаются в этой таблице ключевых слов:
 
 .. code:: robotframework
 
@@ -349,8 +351,8 @@ keyword table:
         Attempt to login with credentials    ${username}    ${password}
         Status should be    Logged In
 
-    # Keywords below used by higher level tests. Notice how given/when/then/and
-    # prefixes can be dropped. And this is a comment.
+    # Ключевый слова ниже используются для тестов верхнего уровня. Обратите ввнимание
+    # что префиксы given/when/then/and могут быть отброшены. А еще это пример комментария.
 
     A user has a valid account
         Create valid user    ${USERNAME}    ${PASSWORD}
@@ -366,19 +368,22 @@ keyword table:
         Attempt to login with credentials    ${USERNAME}    ${PASSWORD}
         Status should be    Access Denied
 
-User-defined keywords can include actions defined by other user-defined or
-library keywords. As you can see from this example, user-defined keywords can
-take parameters. They can also return values and even contain FOR loops. For
-now, the important thing to know is that user-defined keywords enable test
-creators to create reusable steps for common action sequences. User-defined
-keywords can also help the test author keep the tests as readable as possible
-and use appropriate abstraction levels in different situations.
+Пользовательские ключевые слова могут включать действия задаваемые другими
+пользовательскими или библиотечными ключевыми словами. Как видно из этого
+примера, пользовательские ключевые слова могут принимать параметры. Они также
+могут возвращать значения и даже включать в себя циклы FOR. Но этом этапе
+для нас важно, что пользовательские ключевые слова позволяют авторам тестов
+создавать повторно используемые шаги для общих последовательностей действий.
+Пользовательские ключевые слова также могут помочь сделать тесты максимально
+удобными для понимания и использовать подходящий уровень абстракции в различных
+ситуациях.
 
-Variables
-=========
 
-Defining variables
-------------------
+Переменные
+==========
+
+Определение переменных
+----------------------
 
 Variables are an integral part of the Robot Framework. Usually any data used in
 tests that is subject to change is best defined as variables. Syntax for
@@ -415,7 +420,7 @@ database content to `${database}` variable and then verifies the content
 using BuiltIn_ keyword `Should Contain`. Both library and user keywords can
 return values.
 
-.. _User keyword: `User keywords`_
+.. _User keyword: `Пользовательские ключевые слова`_
 .. _BuiltIn: `Standard libraries`_
 
 .. code:: robotframework
