@@ -286,29 +286,30 @@ __ http://en.wikipedia.org/wiki/Behavior_driven_development
 Ключевые слова
 ==============
 
-Тестовые сценарии созадются из ключевых слов, которые аогут имет два источника.
+Тестовые сценарии созадются из ключевых слов, которые могут иметь два источника.
 `Библиотечные ключевые слова`_ могут импортироватся из библиотек, а так называемые
-`пользовательские ключевые слова`_ могут быть созданы с использованием того же
+`пользовательские ключевые слова`_ могут быть созданы с помощью того же
 синтаксиса, что используется при написании тестовых сценариев.
 
 Библиотечные ключевые слова
 ---------------------------
 
-All lowest level keywords are defined in test libraries which are implemented
-using standard programming languages, typically Python or Java. Robot Framework
-comes with a handful of `test libraries`_ that can be divided to *standard
-libraries*, *external libraries* and *custom libraries*. `Standard libraries`_
-are distributed with the core framework and included generic libraries such as
-`OperatingSystem`, `Screenshot` and `BuiltIn`, which is special because its
-keywords are available automatically. External libraries, such as
-Selenium2Library_ for web testing, must be installed separately. If available
-test libraries are not enough, it is easy to `create custom test libraries`__.
+Все ключевые слова низкого уровня определяются в тестовых бибилотеках используя
+стандартные языки программирования, обычно Python или Java. Robot Framework
+доступен с множеством `тестовых библиотек`_, которые можно разделить на
+*стандартные библиотеки*, *внешние библиотеки* и *пользовательские библиотеки*.
+`Стандартные библиотеки`_ распространяются вместе с ядром фреймворка и включают
+часто используемые библиотеки, такие как `OperatingSystem`, `Screenshot` и `BuiltIn`,
+благодаря этому, ключевые слова из них доступны автоматически. Внешние библиотеки,
+такие как Selenium2Library_ для web-тестирования, должны быть установлены дополнительно.
+Если существующих тестовых  библиотек недостаточно, то нетрудно `создать пользовательскую
+библиотеку`_
 
-To be able to use keywords provided by a test library, the keywords must be
-imported using the `Library` setting. Tests in this guide need keywords from
-the standard `OperatingSystem` library (e.g. `Remove File`) and from a custom
-made `LoginLibrary` (e.g.  `Attempt to login with credentials`). Both of these
-libraries are imported in the settings table below:
+Чтобы ключевые слова из тестовй библиотеки можно было использовать в тесте, их необходимо
+импортировать с помощью настройки `Library`. Тестам из этого руководства нужны ключыевые
+слова из библиотеки `OperatingSystem` (напрмер, `Remove File`) и из пользовательской
+библиотеки `LoginLibrary` (например, `Attempt to login with credentials`). Обе эти
+библиотеки импортируются в таблице в настройками ниже:
 
 .. code:: robotframework
 
@@ -316,10 +317,10 @@ libraries are imported in the settings table below:
     Library           OperatingSystem
     Library           lib/LoginLibrary.py
 
-.. _Test libraries: http://robotframework.org/#libraries
-.. _Standard libraries: http://robotframework.org/robotframework/#standard-libraries
+.. _тестовых библиотек: http://robotframework.org/#libraries
+.. _Стандартные библиотеки: http://robotframework.org/robotframework/#standard-libraries
 .. _Selenium2Library: https://github.com/rtomac/robotframework-selenium2library/#readme
-__ `Создание тестовых библиотек`_
+.. _создать пользовательскую библиотеку: `Создание тестовых библиотек`_
 
 Пользовательские ключевые слова
 -------------------------------
@@ -386,8 +387,8 @@ __ `Создание тестовых библиотек`_
 Определение переменных
 ----------------------
 
-Перменные это неотьемлимая часть Robot Framework. Обычно, любые данные,
-используемые в тестах, и подверженные изменениям, будет лучше определить через
+Переменные это неотьемлемая часть Robot Framework. Обычно, любые данные
+используемые в тестах и подверженные изменениям, будет лучше определить через
 переменные. Синтаксис определения пременных прост, как это видно в этой таблице
 с переменными:
 
@@ -401,7 +402,7 @@ __ `Создание тестовых библиотек`_
     ${PWD INVALID LENGTH}     Password must be 7-12 characters long
     ${PWD INVALID CONTENT}    Password must be a combination of lowercase and uppercase letters and numbers
 
-Перменные также могут задваться из командной строки, что может быть полезно
+Перменные также могут задаваться из командной строки, что может быть полезно
 при запуске теста в разном окружении. Например этот демо-пример может быть запущен
 таким способом::
 
@@ -423,7 +424,7 @@ Contain` задает значение для переменной `${database}`
 и пользовательское — ключевых слова могут возвращать значения.
 
 .. _пользовательское ключевое слово: `Пользовательские ключевые слова`_
-.. _встроенное ключевое слово: `Standard libraries`_
+.. _встроенное ключевое слово: _Стандартные библиотеки
 
 .. code:: robotframework
 
