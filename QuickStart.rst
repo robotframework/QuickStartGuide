@@ -473,7 +473,7 @@ Using tags
 ----------
 
 Robot Framework allows setting tags for test cases to give them free metadata.
-Tags can be set for all test cases in a file with `Force Tags` and `Default
+Tags can be set for all test cases in a file with `Test Tags` and `Default
 Tags` settings like in the table below. It is also possible to define tags
 for a single test case using `[Tags]` settings like in earlier__ `User
 status is stored in database` test.
@@ -483,7 +483,7 @@ __ `Using variables`_
 .. code:: robotframework
 
     *** Settings ***
-    Force Tags        quickstart
+    Test Tags        quickstart
     Default Tags      example    smoke
 
 When you look at a report after test execution, you can see that tests have
